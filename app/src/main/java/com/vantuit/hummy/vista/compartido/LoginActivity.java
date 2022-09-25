@@ -22,9 +22,12 @@ public class LoginActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         adapter = new ViewPageAdapter(fragmentManager, getLifecycle());
 
+        IniciarSesionFragment sesionFragment = new IniciarSesionFragment();
+        RegistrarseFragment registrarseFragment = new RegistrarseFragment();
+
         //Añadir los fragmentos al adapter
-        adapter.addFragment(new IniciarSesionFragment());
-        adapter.addFragment(new RegistrarseFragment());
+        adapter.addFragment(sesionFragment);
+        adapter.addFragment(registrarseFragment);
 
         viewPager2.setAdapter(adapter);
 
@@ -39,5 +42,13 @@ public class LoginActivity extends AppCompatActivity {
                     break;
             }
         }).attach();
+
+        /*sesionFragment.tvRegistrarse.setOnClickListener(v -> {
+            viewPager2.setCurrentItem(1);
+        });*/
+
+        /*registrarseFragment.tvIniciarSesion.setOnClickListener(v -> {
+            viewPager2.setCurrentItem(0);
+        });*/
     }
 }
