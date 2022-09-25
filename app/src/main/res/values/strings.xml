@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Hummy</string>
+    <string name="delicious_fast_and_safe">DELICIOUS, FAST AND SAFE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bienvenido_de_nuevo">Bienvenido de nuevo!</string>
+    <string name="ingresa_tu_cuenta">Ingresa tu cuenta</string>
+    <string name="correo">Correo</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="se_te_olvido_la_contrasena">¿Se te olvido la contraseña?</string>
+    <string name="iniciar_sesion_con">Iniciar sesión con</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="inscribirse">inscribirse</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="nombre">Nombre</string>
+    <string name="numero_de_contacto">Numero de contacto</string>
+    <string name="confirmar_contrasena">Confirmar contraseña</string>
+    <string name="acepto_terminos_y_condiciones">Acepto los terminos y condiciones</string>
+    <string name="ya_tienes_cuenta">¿Ya tienes cuenta?</string>
+    <string name="que_se_te_antoja_hoy">¿Que se te antoja hoy?</string>
+    <string name="elige_un_rol">Elige un rol</string>
+    <string name="establecimiento">Establecimiento</string>
+    <string name="administrador">Administrador</string>
+    <string name="cliente">Cliente</string>
 </resources>

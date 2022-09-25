@@ -3,7 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout-v28/fragment_registrarse.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_direcciones.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_inicio.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_lista_establecimientos.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_lista_productos.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_login.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_nueva_direccion.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_rol.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_splash.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/app_bar.xml" value="0.1" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/card_categorias.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/card_domicilio.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/card_establicimientos.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/card_producto.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/fragment_establecimientos.xml" value="0.10555555555555556" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/fragment_principal.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/fragment_registrarse.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/activity_buscador.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/activity_lista_establecimientos.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/activity_lista_productos.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/activity_rol.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_carrito.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_categorias.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_configuracion.xml" value="0.13984375" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_establecimientos.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_principal.xml" value="0.22" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layouts/compartido/layout/fragment_usuario.xml" value="0.41478696741854637" />
+        <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/menu/nav_menu_botton.xml" value="0.18645833333333334" />
       </map>
     </option>
   </component>

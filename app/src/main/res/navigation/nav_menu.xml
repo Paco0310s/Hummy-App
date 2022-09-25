@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_menu"
+    app:startDestination="@id/fragmentPrincipal">
+
+    <fragment
+        android:id="@+id/fragmentPrincipal"
+        android:name="com.vantuit.hummy.vista.cliente.PrincipalFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_principal" />
+    <fragment
+        android:id="@+id/fragmentUsuario"
+        android:name="com.vantuit.hummy.vista.cliente.UsuarioFragment"
+        android:label="Usuario"
+        tools:layout="@layout/fragment_usuario" />
+    <fragment
+        android:id="@+id/fragmentCarrito"
+        android:name="com.vantuit.hummy.vista.cliente.CarritoFragment"
+        android:label="Carrito "
+        tools:layout="@layout/fragment_carrito" />
+    <fragment
+        android:id="@+id/fragmentConfiguracion"
+        android:name="com.vantuit.hummy.vista.cliente.ConfiguracionFragment"
+        android:label="Configuración"
+        tools:layout="@layout/fragment_configuracion" />
+</navigation>
