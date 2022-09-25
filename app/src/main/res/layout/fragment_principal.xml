@@ -68,6 +68,7 @@
                                 </Button>
 
                                 <LinearLayout
+                                    android:id="@+id/llDireccion"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
@@ -171,7 +172,25 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Establecimientos"
+                    android:layout_marginStart="10dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrincipal"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/cooperhewitt_heavy"/>
 
+                <include
+                    android:id="@+id/fragment_establecimientos"
+                    layout="@layout/fragment_establecimientos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
