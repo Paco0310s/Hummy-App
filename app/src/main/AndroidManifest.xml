@@ -14,7 +14,25 @@
         android:theme="@style/Theme.Hummy"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".vista.cliente.ListaProductosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.administrador.ListaEstablecimientosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.compartido.RolActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.BuscadorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.InicioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.compartido.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.compartido.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
