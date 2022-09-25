@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".vista.cliente.PrincipalFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:background="#8f0480"
+        android:layout_width="match_parent"
+        android:layout_height="110dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/collapsingToolBar"
+            app:collapsedTitleTextAppearance="@style/Widget.Design.CollapsingToolbar"
+            app:expandedTitleTextAppearance="@style/Widget.Design.CollapsingToolbar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:tooltipText="@string/app_name"
+            >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#00B11E1E"
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout7"
+                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent"
+                            android:baselineAligned="false">
+
+                            <LinearLayout
+                                android:id="@+id/layout8"
+                                android:layout_weight="6"
+                                android:layout_height="fill_parent"
+                                android:layout_width="0dp"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:id="@+id/pri_buscar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableStart="?android:attr/actionModeWebSearchDrawable"
+                                    android:text="@string/que_se_te_antoja_hoy"
+                                    android:textAlignment="textStart"
+                                    android:textColor="@color/black"
+                                    android:backgroundTint="@color/white"
+                                    android:drawableBottom="@drawable/tab_buscador">
+
+                                </Button>
+
+                                <LinearLayout
+                                    android:id="@+id/llDireccion"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="17dp"
+                                        android:layout_height="17dp"
+                                        android:src="@drawable/ic_ubicacion_blanco">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="5dp"
+                                        android:text="Eviar a Azulejo 80"
+                                        android:textColor="@color/white"
+                                        android:textSize="11sp">
+
+                                    </TextView>
+
+                                    <ImageView
+                                        android:layout_width="17dp"
+                                        android:layout_height="17dp"
+                                        android:layout_marginStart="5dp"
+                                        android:src="@drawable/ic_derecha_blanco">
+
+                                    </ImageView>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/filtar"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:layout_width="0dp"
+                                android:orientation="vertical">
+
+                                <ImageButton
+                                    android:id="@+id/Filtrar"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_gravity="end"
+                                    android:background="@drawable/ic_filtrar_blanco">
+
+                                </ImageButton>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00BD2020"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#00EFDDDD"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBaseline_toBottomOf="parent"
+                app:layout_constraintBaseline_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/image_slider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="196dp"
+                        app:iss_auto_cycle="true"
+                        app:iss_period="2000"
+                        app:iss_delay="15"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Establecimientos"
+                    android:layout_marginStart="10dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrincipal"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/cooperhewitt_heavy"/>
+
+                <include
+                    android:id="@+id/fragment_establecimientos"
+                    layout="@layout/fragment_establecimientos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
