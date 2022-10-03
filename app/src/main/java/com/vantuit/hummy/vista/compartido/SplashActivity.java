@@ -3,7 +3,10 @@ package com.vantuit.hummy.vista.compartido;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.vantuit.hummy.R;
 
 import java.util.Timer;
@@ -16,16 +19,43 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        TimerTask tarea = new TimerTask() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        };
+        //Comprueba si ya inició Sesión
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null)
+        {
+            Toast.makeText(SplashActivity.this, "Bienvenido "+acct.getDisplayName(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(SplashActivity.this, RolActivity.class);
+            TimerTask tarea = new TimerTask() {
+                @Override
+                public void run() {
 
-        Timer timer = new Timer();
-        timer.schedule(tarea, 2000);
+
+
+                    startActivity(intent);
+                    finish();
+                }
+            };
+
+            Timer timer = new Timer();
+            timer.schedule(tarea, 2000);
+        } else
+        {
+            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+
+            TimerTask tarea = new TimerTask() {
+                @Override
+                public void run() {
+
+                    startActivity(intent);
+                    finish();
+                }
+            };
+
+            Timer timer = new Timer();
+            timer.schedule(tarea, 2000);
+        }
+
+
+
     }
 }

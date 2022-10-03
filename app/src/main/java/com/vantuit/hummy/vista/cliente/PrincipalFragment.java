@@ -60,7 +60,6 @@ public class PrincipalFragment extends Fragment {
             fragmentTransaction.replace(R.id.cambiar, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();*/
-
             Intent i = new Intent(getActivity().getApplicationContext(), BuscadorActivity.class);
             startActivity(i);
         });
@@ -77,6 +76,7 @@ public class PrincipalFragment extends Fragment {
     }
 
     public void init(View est) {
+
         establecimientos = new ArrayList<>();
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
                 "Local establecido", "Abierto", "4.5"));
