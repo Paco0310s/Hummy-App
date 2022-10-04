@@ -19,41 +19,24 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        Intent intent;
         //Comprueba si ya inició Sesión
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null)
-        {
-            Toast.makeText(SplashActivity.this, "Bienvenido "+acct.getDisplayName(), Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(SplashActivity.this, RolActivity.class);
-            TimerTask tarea = new TimerTask() {
-                @Override
-                public void run() {
+        if (acct != null) intent = new Intent(SplashActivity.this, RolActivity.class);
+        else intent = new Intent(SplashActivity.this, LoginActivity.class);
 
-                    startActivity(intent);
-                    finish();
-                }
-            };
-
-            Timer timer = new Timer();
-            timer.schedule(tarea, 2000);
-        } else
-        {
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-
-            TimerTask tarea = new TimerTask() {
-                @Override
-                public void run() {
-
-                    startActivity(intent);
-                    finish();
-                }
-            };
-
-            Timer timer = new Timer();
-            timer.schedule(tarea, 2000);
-        }
-
-
-
+        splash(intent);
+    }
+    public void splash(Intent intent)
+    {
+        TimerTask tarea = new TimerTask() {
+            @Override
+            public void run() {
+                startActivity(intent);
+                finish();
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(tarea, 2000);
     }
 }
