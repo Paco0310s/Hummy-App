@@ -8,6 +8,10 @@ public class Establecimiento {
     String estado;
     String calificacion;
 
+    public Establecimiento() {
+
+    }
+
     public Establecimiento(int imagen, String nombre, String descripcion, String estado, String calificacion) {
         this.imagen = imagen;
         this.nombre = nombre;
