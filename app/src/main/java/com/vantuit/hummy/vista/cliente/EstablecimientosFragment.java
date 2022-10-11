@@ -38,19 +38,19 @@ public class EstablecimientosFragment extends Fragment {
     public void init() {
         establecimientos = new ArrayList<>();
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         adapter();
 
     }
