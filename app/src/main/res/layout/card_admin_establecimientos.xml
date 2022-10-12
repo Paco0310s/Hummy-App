@@ -17,7 +17,7 @@
 
             <ImageView
                 android:id="@+id/imagen"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
@@ -88,6 +88,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="2dp"
                 android:clickable="true"
+                android:foregroundGravity="center"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -97,6 +98,15 @@
                     android:layout_height="wrap_content"
                     android:rotationY="180"
                     app:srcCompat="?attr/actionModeCloseDrawable" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:gravity="center"
+                    android:text="Detalles"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </RelativeLayout>
