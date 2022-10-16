@@ -50,7 +50,7 @@ public class CategoriasFragment extends Fragment {
             public void onItemClick(Categoria item) {
                 listaCategorias(item);
             }
-        });
+        }, R.layout.card_categorias);
         recyclerView = root.findViewById(R.id.listaCategorias);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));

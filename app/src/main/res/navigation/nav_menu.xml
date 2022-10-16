@@ -23,6 +23,6 @@
     <fragment
         android:id="@+id/fragmentConfiguracion"
         android:name="com.vantuit.hummy.vista.cliente.ConfiguracionFragment"
-        android:label="Configuración"
+        android:label="Notificaciones"
         tools:layout="@layout/fragment_configuracion" />
 </navigation>

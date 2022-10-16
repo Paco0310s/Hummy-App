@@ -8,6 +8,8 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.vantuit.hummy.R;
 
+import kotlinx.coroutines.Dispatchers;
+
 public class LoginActivity extends AppCompatActivity {
     ViewPageAdapter adapter;
     ViewPager2 viewPager2;
@@ -44,8 +46,12 @@ public class LoginActivity extends AppCompatActivity {
         }).attach();
 
         /*sesionFragment.tvRegistrarse.setOnClickListener(v -> {
+            if (viewPager2.getAdapter() != null)
+                viewPager2.setAdapter(null);
+            viewPager2.setAdapter(adapter);
             viewPager2.setCurrentItem(1);
         });*/
+
 
         /*registrarseFragment.tvIniciarSesion.setOnClickListener(v -> {
             viewPager2.setCurrentItem(0);

@@ -56,6 +56,13 @@ public class IniciarSesionFragment extends Fragment {
         google_img = root.findViewById(R.id.iniciarGoogle);
         tvRegistrarse = root.findViewById(R.id.tvInscribirse);
 
+        LoginActivity registrarse = new LoginActivity();
+
+        /*tvRegistrarse.setOnClickListener(v -> {
+            registrarse.viewPager2.setCurrentItem(1);
+        });*/
+
+
         // Creamos nuestro GoogleSignInOptions para poder obtener el cliente
         gso = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -6,47 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".vista.cliente.DireccionesActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/arribaDirecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0" />
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/abajoDirecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/izquierdaDirecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/derechaDirecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="1" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
+        android:layout_marginTop="60dp"
         android:animationCache="true"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="18dp"
         app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/abajoDirecciones"
-        app:layout_constraintEnd_toStartOf="@+id/derechaDirecciones"
-        app:layout_constraintStart_toStartOf="@+id/izquierdaDirecciones"
-        app:layout_constraintTop_toTopOf="@+id/arribaDirecciones" >
+        app:cardUseCompatPadding="true">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -83,10 +59,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/tab_boton_completo"
-                    android:drawableLeft="@drawable/ic_anadirdireccionblanco"
                     android:fontFamily="@font/cooperhewitt_heavy"
                     android:text="Agregar Dirección"
-                    android:textAlignment="textStart"
                     android:textSize="15sp"
                     android:textStyle="normal" />
             </LinearLayout>

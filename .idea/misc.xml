@@ -3,6 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/drawable/imagen.xml" value="0.149" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/drawable/imagen_redonda.xml" value="0.149" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/drawable/tab_indicator.xml" value="0.1435" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/drawable/tab_redondo.xml" value="0.1435" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_agregar_opinion.xml" value="0.18478260869565216" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_agregar_opinion_producto.xml" value="0.1" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_contenido_producto.xml" value="0.18478260869565216" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_direcciones.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_establecimiesto_individual.xml" value="0.2" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_inicio.xml" value="0.5" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_lista_establecimientos.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_lista_opiniones.xml" value="0.33" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_lista_productos.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_nueva_direccion.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_producto_induvidual.xml" value="0.22" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_rol.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/app_bar.xml" value="0.1" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_categoria_establecimineto.xml" value="0.5" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_categorias.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_domicilio.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_establicimientos.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_opinion.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_producto.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/card_producto_carrito.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/contenido_producto.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_carrito.xml" value="0.25" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_establecimientos.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_principal.xml" value="0.2" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_registrarse.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/fragment_usuario.xml" value="0.2" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/informacion_usuario.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/menu/menu_producto.xml" value="0.67" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/menu/nav_menu_botton.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout-v28/fragment_registrarse.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_direcciones.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/paco0/AndroidStudioProjects/Hummy/app/src/main/res/layout/activity_inicio.xml" value="0.18645833333333334" />

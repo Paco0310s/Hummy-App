@@ -1,10 +1,13 @@
 package com.vantuit.hummy.vista.cliente;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -25,6 +28,14 @@ public class DireccionesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_direcciones);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Lista Opiniones");
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         bAgregarDireccion = findViewById(R.id.bAgregarDireccion);
 
@@ -60,4 +71,11 @@ public class DireccionesActivity extends AppCompatActivity {
                 this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
+
 }
