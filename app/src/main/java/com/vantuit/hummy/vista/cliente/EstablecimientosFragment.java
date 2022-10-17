@@ -3,13 +3,17 @@ package com.vantuit.hummy.vista.cliente;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,16 +34,42 @@ public class EstablecimientosFragment extends Fragment {
     List<Establecimiento> establecimientos;
     AdapterEstablecimientos Adapter;
     RecyclerView recyclerView;
+    static String Buscador;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_establecimientos, container, false);
 
+
         init();
 
         return root;
     }
+    public static void setBuscador(String buscador)
+    {
+        Buscador = buscador;
+    }
+    public void nel()
+    {
+        try {
+
+            Toast.makeText(getActivity(), Buscador+"s", Toast.LENGTH_SHORT).show();
+
+        }catch (NullPointerException e)
+        {
+            Toast.makeText(getActivity(), "Chupo faro", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    public void nel2()
+    {
+        LayoutInflater inflater = getLayoutInflater();
+        View myView = inflater.inflate(R.layout.activity_buscador, null);
+        TextView buscador = myView.findViewById(R.id.etBuscador);
+    }
+
 
     public void init() {
         establecimientos = new ArrayList<>();
