@@ -184,7 +184,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Eleminar"
+                android:text="Eliminar"
                 android:textSize="15sp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="10dp"
@@ -195,7 +195,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mas productos del vendedor"
+                android:text="Más productos del vendedor"
                 android:textSize="15sp"
                 android:layout_gravity="end"
                 android:textColor="@color/colorPrincipal"

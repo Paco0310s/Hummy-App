@@ -50,9 +50,14 @@ public class EstablecimiestoIndividual extends AppCompatActivity {
 
     public void initCategorias() {
         categorias = new ArrayList<>();
-        categorias.add(new Categoria(R.drawable.logo));
-        categorias.add(new Categoria(R.drawable.logo));
-        categorias.add(new Categoria(R.drawable.logo));
+        categorias.add(new Categoria(R.drawable.bebidas));
+        categorias.add(new Categoria(R.drawable.antojitos));
+        categorias.add(new Categoria(R.drawable.comidarapida));
+        categorias.add(new Categoria(R.drawable.desayunos));
+        categorias.add(new Categoria(R.drawable.ensaladas));
+        categorias.add(new Categoria(R.drawable.helados));
+        categorias.add(new Categoria(R.drawable.mariscos));
+        categorias.add(new Categoria(R.drawable.reposteria));
         adapterCategorias();
 
     }

@@ -10,25 +10,28 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vantuit.hummy.R;
-import com.vantuit.hummy.modelo.Producto;
+import com.vantuit.hummy.modelo.Carrito;
+import com.vantuit.hummy.modelo.Comunicacion;
 
 import java.util.List;
 
 public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHolder>{
-    private List<Producto> mData;
+    private List<Carrito> mData;
     private LayoutInflater inflater;
     private Context context;
     final AdapterCarrito.OnItemClickListener listener;
+    private final Comunicacion comunicacion;
 
     public interface OnItemClickListener{
-        void onItemClick(Producto item);
+        void onItemClick(Carrito item);
     }
 
-    public AdapterCarrito(List<Producto> itemList, Context context, AdapterCarrito.OnItemClickListener listener){
+    public AdapterCarrito(List<Carrito> itemList, Context context, AdapterCarrito.OnItemClickListener listener, Comunicacion comunicacion){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
         this.listener = listener;
+        this.comunicacion = comunicacion;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
 
     }
 
-    public void setItems(List<Producto> items){mData=items;}
+    public void setItems(List<Carrito> items){mData=items;}
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nombre, descripcion, precio, calificacion;
@@ -60,7 +63,7 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
             iconImage = itemView.findViewById(R.id.ca_imagen);
         }
 
-        void bindData(final Producto item){
+        void bindData(final Carrito item){
             nombre.setText(item.getNombre());
             precio.setText(item.getPrecio());
             descripcion.setText(item.getVendedor());

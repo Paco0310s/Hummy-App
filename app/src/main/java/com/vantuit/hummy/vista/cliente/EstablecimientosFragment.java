@@ -41,16 +41,6 @@ public class EstablecimientosFragment extends Fragment {
                 "Local establecido", "Abierto", "4.5"));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
                 "Local establecido", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
         adapter();
 
     }

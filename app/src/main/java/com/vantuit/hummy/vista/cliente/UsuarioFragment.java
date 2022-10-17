@@ -2,6 +2,8 @@ package com.vantuit.hummy.vista.cliente;
 
 import static com.vantuit.hummy.R.id.toolbar;
 
+import android.app.Notification;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Binder;
 import android.os.Build;
@@ -12,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import android.renderscript.ScriptGroup;
@@ -23,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -37,12 +42,43 @@ public class UsuarioFragment extends Fragment {
     View root;
     TextView nombre;
     String usuario;
+    Button direcciones, datos, contactanos, cambiar_contraseña, ser_vendedor, aviso_privacidad;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_usuario, container, false);
 
         nombre = root.findViewById(R.id.ue_nombre_usuario);
+        direcciones = root.findViewById(R.id.us_direcciones);
+        direcciones.setOnClickListener(view ->{
+            Intent i = new Intent(getActivity().getApplicationContext(), DireccionesActivity.class);
+            startActivity(i);
+        });
+        datos = root.findViewById(R.id.us_datos);
+        datos.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), DatosUsuario.class);
+            startActivity(i);
+        });
+        contactanos = root.findViewById(R.id.us_contactanos);
+        contactanos.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), Contactanos.class);
+            startActivity(i);
+        });
+        cambiar_contraseña = root.findViewById(R.id.us_cambiar_contraseña);
+        cambiar_contraseña.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), CambiarContrasena.class);
+            startActivity(i);
+        });
+        ser_vendedor = root.findViewById(R.id.us_ser_vendedor);
+        ser_vendedor.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), SerVendedor.class);
+            startActivity(i);
+        });
+        aviso_privacidad = root.findViewById(R.id.us_aviso_privacidad);
+        aviso_privacidad.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), AvisoPrivacidad.class);
+            startActivity(i);
+        });
 
         usuario = "May";
 
@@ -53,14 +89,14 @@ public class UsuarioFragment extends Fragment {
         segundos = calendario.get(Calendar.SECOND);
         System.out.println(hora + ":" + minutos + ":" + segundos);
 
-        if ( hora >= 0 && hora <=12){
-            setTitle("Buenas Dias, " + usuario);
+        if ( hora >= 0 && hora <=12 ){
+            setTitle("Buenos días, " + usuario);
         }
         if (hora>12 && hora<=20){
-            setTitle("Buenas Tardes, " + usuario);
+            setTitle("Buenas tardes, " + usuario);
         }
         if (hora > 20 && hora <= 24){
-            setTitle("Buenas Noches, " + usuario);
+            setTitle("Buenas noches, " + usuario);
         }
 
         return root;
@@ -99,6 +135,20 @@ public class UsuarioFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public void notificacionesProductos(){
+        // Get the layouts to use in the custom notification
+        //RemoteViews notificationLayout = new RemoteViews(getActivity(), R.layout.notification_small);
+        //RemoteViews notificationLayoutExpanded = new RemoteViews(getActivity(), R.layout.notification_large);
+
+        // Apply the layouts to the notification
+        Notification customNotification = new NotificationCompat.Builder(getActivity().getApplicationContext())
+                .setSmallIcon(R.drawable.logo)
+                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                //.setCustomContentView(notificationLayout)
+                //.setCustomBigContentView(notificationLayoutExpanded)
+                .build();
     }
 
 }

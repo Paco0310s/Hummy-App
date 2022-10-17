@@ -2,7 +2,9 @@ package com.vantuit.hummy.vista.cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,17 +17,29 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.badge.BadgeUtils;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.databinding.ActivityMainBinding;
+import com.vantuit.hummy.modelo.Carrito;
+import com.vantuit.hummy.modelo.Comunicacion;
 
-public class ProductoInduvidual extends AppCompatActivity {
+public class ProductoInduvidual extends AppCompatActivity  {
 
     private Menu menu;
     CollapsingToolbarLayout collapsingToolbar;
+    int numero;
+    Carrito cantidad = new Carrito();
+    MainActivity aumnetar = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +66,8 @@ public class ProductoInduvidual extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //aumnetar.badgeDrawable.setNumber(numero++);
+                add(4);
                 Snackbar.make(view, "Agregado al carrito", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -112,4 +128,14 @@ public class ProductoInduvidual extends AppCompatActivity {
         MenuItem item = menu.findItem(id);
         item.setVisible(true);
     }
+
+    @SuppressLint("UnsafeOptInUsageError")
+    public void add(int numero) {
+
+        BadgeDrawable badgeDrawable= BadgeDrawable.create(ProductoInduvidual.this);
+        badgeDrawable.setNumber(numero);
+        badgeDrawable.setVisible(true);
+        BadgeUtils.attachBadgeDrawable(badgeDrawable, findViewById(R.id.toolbar_producto), R.id.action_info);
+    }
+
 }

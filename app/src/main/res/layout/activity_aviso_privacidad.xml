@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.cliente.AvisoPrivacidad">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_marginTop="60dp"
+        android:animationCache="true"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Politica de Privacidad"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"
+                    android:text="En Hummy nos tomamos la privacidad de nuestros visitantes con seriedad. Esta página de Políticas de Privacidad te ayudará a comprender, que información personal es recolectada por Hummy y como es usada.
+                    Es importante enfatizar que Hummy nunca compartirá, venderá o rentará tu información personal."
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Sanciones"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"
+                    android:text="En caso que la Persona Usuaria incumpliera una ley o los Términos y Condiciones, podremos advertir, suspender, restringir o inhabilitar temporal o definitivamente su cuenta, sin perjuicio de otras sanciones que se establezcan en las reglas de uso particulares de los servicios de Hummy."
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Responsabilidad"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"
+                    android:text="Hummy será responsable por cualquier defecto en la prestación de su servicio, en la medida en que le sea imputable y con el alcance previsto en las leyes vigentes. "
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Cambios De Políticas De Privacidad"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"
+                    android:text="Hummy se reserva los derechos de actualizar sus políticas de privacidad en cualquier momento."
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
