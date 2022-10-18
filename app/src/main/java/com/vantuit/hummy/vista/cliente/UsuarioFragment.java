@@ -1,6 +1,7 @@
 package com.vantuit.hummy.vista.cliente;
 
 import static com.vantuit.hummy.R.id.toolbar;
+import static com.vantuit.hummy.R.id.us_cambiar_rol;
 
 import android.app.Notification;
 import android.content.Intent;
@@ -32,6 +33,7 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.vista.compartido.RolActivity;
 
 import java.time.LocalDateTime;
 import java.util.Calendar;
@@ -42,7 +44,7 @@ public class UsuarioFragment extends Fragment {
     View root;
     TextView nombre;
     String usuario;
-    Button direcciones, datos, contactanos, cambiar_contraseña, ser_vendedor, aviso_privacidad;
+    Button direcciones, datos, contactanos, cambiar_contraseña, ser_vendedor, aviso_privacidad, cambiar_rol;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -77,6 +79,11 @@ public class UsuarioFragment extends Fragment {
         aviso_privacidad = root.findViewById(R.id.us_aviso_privacidad);
         aviso_privacidad.setOnClickListener(view -> {
             Intent i = new Intent(getActivity().getApplicationContext(), AvisoPrivacidad.class);
+            startActivity(i);
+        });
+        cambiar_rol = root.findViewById(R.id.us_cambiar_rol);
+        cambiar_rol.setOnClickListener(view -> {
+            Intent i = new Intent(getActivity().getApplicationContext(), RolActivity.class);
             startActivity(i);
         });
 

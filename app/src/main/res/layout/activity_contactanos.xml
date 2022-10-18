@@ -53,6 +53,7 @@
                     android:textSize="21sp" />
 
                 <Button
+                    android:id="@+id/co_enviar_mensaje"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Enviar Mensaje"
@@ -63,6 +64,7 @@
                 </Button>
 
                 <Button
+                    android:id="@+id/co_enviar_problema"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Informar sobre un problema "

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_agregar_opinion_producto.xml" value="0.10869565217391304" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_aviso_privacidad.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_buscador.xml" value="0.5" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_cambiar_contrasena.xml" value="0.2" />
@@ -10,8 +11,10 @@
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_contenido_producto.xml" value="0.25" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_datos_usuario.xml" value="0.18" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_direcciones.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_enviar_mensaje.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_lista_productos.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_mensaje_reclamo.xml" value="0.25" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_producto_induvidual.xml" value="0.1" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_ser_vendedor.xml" value="0.22" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/app_bar.xml" value="0.1" />
