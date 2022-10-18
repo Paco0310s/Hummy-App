@@ -79,19 +79,19 @@ public class PrincipalFragment extends Fragment {
     public void init(View est) {
         establecimientos = new ArrayList<>();
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
 
         adapter(est);
     }
