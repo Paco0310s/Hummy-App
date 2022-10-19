@@ -56,13 +56,13 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
         ViewHolder(View itemView) {
             super(itemView);
             nombre = itemView.findViewById(R.id.es_nombre);
-            descripcion = itemView.findViewById(R.id.es_descricion);
+            descripcion = itemView.findViewById(R.id.es_id);
             estado = itemView.findViewById(R.id.estadoTienda);
             calificacion = itemView.findViewById(R.id.cal_establecimiento);
             iconImage = itemView.findViewById(R.id.imagen);
         }
 
-        void bindData(final Establecimiento item){
+        public void bindData(final Establecimiento item){
             nombre.setText(item.getNombre());
             descripcion.setText(item.getDescripcion());
             estado.setText(item.getEstado());
