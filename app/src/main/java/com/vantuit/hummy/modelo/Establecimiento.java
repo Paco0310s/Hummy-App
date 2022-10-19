@@ -16,6 +16,7 @@ public class Establecimiento {
 
     public Establecimiento(int imagen, String nombre, String descripcion, String estado, String calificacion) {
 
+    }
     public Establecimiento(int imagen, String nombre, String descripcion, String estado, String calificacion, String foto, String id) {
         this.imagen = imagen;
         this.nombre = nombre;
