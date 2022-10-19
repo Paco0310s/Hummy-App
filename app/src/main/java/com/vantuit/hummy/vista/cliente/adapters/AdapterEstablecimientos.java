@@ -67,7 +67,9 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
             descripcion.setText(item.getDescripcion());
             estado.setText(item.getEstado());
             calificacion.setText(item.getCalificacion());
-            iconImage.setImageResource(item.getImagen());
+            if(item.getFoto()==null || item.getFoto().isEmpty()) iconImage.setImageResource(R.drawable.logo);
+            // else iconImage.setImageResource(R.drawable.logo);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
