@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.vista.administrador.ListaEstablecimientosActivity;
 import com.vantuit.hummy.vista.cliente.InicioActivity;
+import com.vantuit.hummy.vista.cliente.MainActivity;
 
 public class RolActivity extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class RolActivity extends AppCompatActivity {
 
         Button bCliente = findViewById(R.id.bCliente);
         bCliente.setOnClickListener(v -> {
-            Intent i = new Intent(this, InicioActivity.class);
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         });
 

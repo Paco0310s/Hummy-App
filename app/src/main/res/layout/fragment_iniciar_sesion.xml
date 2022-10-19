@@ -55,6 +55,9 @@
         app:layout_constraintStart_toStartOf="@+id/izquierdalogin"
         app:layout_constraintTop_toTopOf="@+id/arribalogin">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
+                android:layout_marginEnd="27dp"
                 android:contextClickable="false"
                 android:gravity="end"
                 android:text="@string/se_te_olvido_la_contrasena"
@@ -198,8 +201,10 @@
                 android:src="@drawable/inicio"
                 />
 
-
         </LinearLayout>
+
+        </ScrollView>
+
     </androidx.cardview.widget.CardView>
 
     <Button

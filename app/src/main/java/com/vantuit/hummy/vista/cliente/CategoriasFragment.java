@@ -37,9 +37,14 @@ public class CategoriasFragment extends Fragment {
 
     public void init() {
         categorias = new ArrayList<>();
-        categorias.add(new Categoria(R.drawable.logo));
-        categorias.add(new Categoria(R.drawable.logo));
-        categorias.add(new Categoria(R.drawable.logo));
+        categorias.add(new Categoria(R.drawable.bebidas));
+        categorias.add(new Categoria(R.drawable.antojitos));
+        categorias.add(new Categoria(R.drawable.comidarapida));
+        categorias.add(new Categoria(R.drawable.desayunos));
+        categorias.add(new Categoria(R.drawable.ensaladas));
+        categorias.add(new Categoria(R.drawable.helados));
+        categorias.add(new Categoria(R.drawable.mariscos));
+        categorias.add(new Categoria(R.drawable.reposteria));
         adapter();
 
     }
@@ -50,7 +55,7 @@ public class CategoriasFragment extends Fragment {
             public void onItemClick(Categoria item) {
                 listaCategorias(item);
             }
-        });
+        }, R.layout.card_categorias);
         recyclerView = root.findViewById(R.id.listaCategorias);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));

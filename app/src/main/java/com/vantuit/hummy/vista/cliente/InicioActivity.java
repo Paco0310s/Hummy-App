@@ -22,7 +22,7 @@ public class InicioActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationview = findViewById(R.id.menuprincipal);
         NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_fragment);
         NavController navController = navHostFragment.getNavController();
-        NavigationUI.setupWithNavController(bottomNavigationview, navController);;
+        NavigationUI.setupWithNavController(bottomNavigationview, navController);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder
                 (R.id.fragmentPrincipal, R.id.fragmentUsuario, R.id.fragmentCarrito,R.id.fragmentConfiguracion).build();
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);

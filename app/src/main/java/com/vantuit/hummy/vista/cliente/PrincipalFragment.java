@@ -43,6 +43,7 @@ public class PrincipalFragment extends Fragment {
 
         imagen = root.findViewById(R.id.image_slider);
         buscar = root.findViewById(R.id.pri_buscar);
+        filtrar = root.findViewById(R.id.Filtrar);
         llDireccion = root.findViewById(R.id.llDireccion);
 
         ArrayList<SlideModel> images = new ArrayList<>();
@@ -52,6 +53,11 @@ public class PrincipalFragment extends Fragment {
 
         imagen.startSliding(3000);
         imagen.setImageList(images, ScaleTypes.CENTER_CROP);
+        
+        filtrar.setOnClickListener(view -> {
+            //Intent i = new Intent(getActivity().getApplicationContext(), ProductoInduvidual.class);
+            //startActivity(i);
+        });
 
         buscar.setOnClickListener(view -> {
             /*Fragment fragment = new FragmentBuscardor();
@@ -97,11 +103,22 @@ public class PrincipalFragment extends Fragment {
     }
     public void adapter(View est)
     {
-        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext());
+        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext(),new AdapterEstablecimientos.OnItemClickListener() {
+            @Override
+            public void onItemClick(Establecimiento item) {
+                establecimientoIndividual(item);
+            }
+        });
         recyclerView = est.findViewById(R.id.listaEstablecimientos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
     }
+
+    public void establecimientoIndividual (Establecimiento categoria){
+        Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        startActivity(i);
+    }
+
 }

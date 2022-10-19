@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Producto;
 
 import java.util.List;
@@ -20,11 +21,17 @@ public class AdapterProducto extends RecyclerView.Adapter<AdapterProducto.ViewHo
     private List<Producto> mData;
     private LayoutInflater inflater;
     private Context context;
+    final AdapterProducto.OnItemClickListener listener;
 
-    public AdapterProducto(List<Producto> itemList, Context context){
+    public interface OnItemClickListener{
+        void onItemClick(Producto item);
+    }
+
+    public AdapterProducto(List<Producto> itemList, Context context, AdapterProducto.OnItemClickListener listener){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -62,6 +69,12 @@ public class AdapterProducto extends RecyclerView.Adapter<AdapterProducto.ViewHo
             vendedor.setText(item.getVendedor());
             calificacion.setText(item.getCalificacion());
             iconImage.setImageResource(item.getImagen());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
 
         }
     }

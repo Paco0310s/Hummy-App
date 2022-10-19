@@ -47,21 +47,28 @@ public class EstablecimientosFragment extends Fragment {
                 "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
                 "Local establecido", "Abierto", "4.5","",""));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5","",""));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5","",""));
+                
         adapter();
 
     }
     public void adapter()
     {
-        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext());
+        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext(),new AdapterEstablecimientos.OnItemClickListener() {
+            @Override
+            public void onItemClick(Establecimiento item) {
+                establecimientoIndividual(item);
+            }
+        });
         recyclerView = root.findViewById(R.id.listaEstablecimientos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
+    }
+
+    public void establecimientoIndividual (Establecimiento categoria){
+        Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        startActivity(i);
     }
 
 }
