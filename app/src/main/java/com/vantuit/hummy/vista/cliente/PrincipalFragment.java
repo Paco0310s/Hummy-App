@@ -96,6 +96,7 @@ public class PrincipalFragment extends Fragment {
 
         establecimientos = new ArrayList<>();
 
+        /*
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas Ahogadas el Pepe",
                 "Tortas ahogadas estilo sinaloa", "Abierto", "2.1"));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Pizza Gerardos",
@@ -111,11 +112,7 @@ public class PrincipalFragment extends Fragment {
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
                 "Local establecido", "Abierto", "4.5","",""));
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Establecimientos");
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        myRef.setValue(establecimientos);*/
+        */
 
         //Conexion con Firebase para insertar datos
 
@@ -157,7 +154,12 @@ public class PrincipalFragment extends Fragment {
                 getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
     }
-    
+
+    public void establecimientoIndividual (Establecimiento e){
+        Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        startActivity(i);
+    }
+
     public void guardaDatosTDA() //Guarda los datos del usuario en el TDA por si los necesitamos después
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -189,4 +191,6 @@ public class PrincipalFragment extends Fragment {
             }
         });
     }
+
+
 }

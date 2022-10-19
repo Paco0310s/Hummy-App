@@ -14,6 +14,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -91,6 +92,8 @@ public class BuscadorActivity extends AppCompatActivity {
                         //View tabView = tabAt.getCustomView();
                         //Toast.makeText(BuscadorActivity.this, tabView.toString(), Toast.LENGTH_SHORT).show();
 
+                        //int wantedTabIndex = 0;
+                        //RecyclerView rv = (RecyclerView)(((LinearLayout)((LinearLayout)tableLayout.getChildAt(0)).getChildAt(wantedTabIndex)).getChildAt(1));
                         break;
                     case 1: tab.setIcon(R.drawable.ic_usuario);
                         tab.setText("Categorias");
