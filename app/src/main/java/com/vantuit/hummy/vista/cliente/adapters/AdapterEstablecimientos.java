@@ -19,11 +19,17 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
     private List<Establecimiento> mData;
     private LayoutInflater inflater;
     private Context context;
+    final AdapterEstablecimientos.OnItemClickListener listener;
 
-    public AdapterEstablecimientos(List<Establecimiento> itemList, Context context){
+    public interface OnItemClickListener{
+        void onItemClick(Establecimiento item);
+    }
+
+    public AdapterEstablecimientos(List<Establecimiento> itemList, Context context, AdapterEstablecimientos.OnItemClickListener listener){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -62,6 +68,12 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
             estado.setText(item.getEstado());
             calificacion.setText(item.getCalificacion());
             iconImage.setImageResource(item.getImagen());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
 
         }
     }

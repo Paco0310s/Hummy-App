@@ -14,12 +14,47 @@
         android:theme="@style/Theme.Hummy"
         tools:targetApi="31">
         <activity
+            android:name=".vista.cliente.EnviarMensaje"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.MensajeReclamo"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.AvisoPrivacidad"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.SerVendedor"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.CambiarContrasena"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.Contactanos"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.DatosUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.EstablecimiestoIndividual"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.ContenidoProducto"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.ListaOpiniones"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.AgregarOpinionProducto"
+            android:exported="false" />
+        <activity
+            android:name=".vista.cliente.ProductoInduvidual"
+            android:exported="false" />
+        <activity
             android:name=".vista.administrador.NuevoEstablecimientoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:exported="false"/>
         <activity
             android:name=".vista.cliente.NuevaDireccionActivity"
             android:exported="false" />
