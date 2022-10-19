@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_buscador.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_direcciones.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_inicio.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_lista_establecimientos.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_rol.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/card_establicimientos.xml" value="0.20878623188405798" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_establecimientos.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_iniciar_sesion.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_principal.xml" value="0.25290697674418605" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_registrarse.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hecto/Escritorio/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_usuario.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_agregar_opinion_producto.xml" value="0.10869565217391304" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_aviso_privacidad.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/oscar/OneDrive/Escritorio/Hummy/app/src/main/res/layout/activity_buscador.xml" value="0.5" />

@@ -96,7 +96,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
                     android:gravity=""
-                    android:inputType="textAutoComplete">
+                    android:inputType="textAutoComplete"
+                    android:text="Hector Eduardo Garcia Villegas">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +121,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
                     android:gravity=""
-                    android:inputType="textWebEmailAddress">
+                    android:inputType="textWebEmailAddress"
+                    android:text="hectorgv2019@gmail.com">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -143,7 +145,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
-                    android:inputType="text|number">
+                    android:inputType="text|number"
+                    android:text="3921273120">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -167,7 +170,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
-                    android:inputType="textPassword">
+                    android:inputType="textPassword"
+                    android:text="17755771">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
@@ -192,7 +196,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
-                    android:inputType="textPassword">
+                    android:inputType="textPassword"
+                    android:text="17755771">
 
                 </com.google.android.material.textfield.TextInputEditText>
 
