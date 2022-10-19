@@ -1,19 +1,20 @@
 package com.vantuit.hummy.modelo;
 
 public class Usuario {
-    private String ID,CORREO,NOMBRE,DIRECCION,TELEFONO,FOTO;
+    private String ID,CORREO,NOMBRE,DIRECCION,TELEFONO,FOTO, TIPOUSUARIO;
 
     public Usuario() {
 
     }
 
-    public Usuario(String ID, String CORREO, String NOMBRE, String DIRECCION, String TELEFONO, String FOTO) {
+    public Usuario(String ID, String CORREO, String NOMBRE, String DIRECCION, String TELEFONO, String FOTO, String TIPOUSUARIO) {
         this.ID = ID;
         this.CORREO = CORREO;
         this.NOMBRE = NOMBRE;
         this.DIRECCION = DIRECCION;
         this.TELEFONO = TELEFONO;
         this.FOTO = FOTO;
+        this.TIPOUSUARIO = TIPOUSUARIO;
     }
 
     public String getID() {
@@ -62,5 +63,13 @@ public class Usuario {
 
     public void setFOTO(String FOTO) {
         this.FOTO = FOTO;
+    }
+
+    public String getTIPOUSUARIO() {
+        return TIPOUSUARIO;
+    }
+
+    public void setTIPOUSUARIO(String TIPOUSUARIO) {
+        this.TIPOUSUARIO = TIPOUSUARIO;
     }
 }

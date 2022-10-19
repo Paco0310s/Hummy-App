@@ -1,8 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".vista.cliente.UsuarioFragment">
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="60dp"
+            android:animationCache="true"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="5dp"
+            app:cardUseCompatPadding="true">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/ue_nombre_usuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="18dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:textAlignment="viewStart"
+                            android:textSize="24sp" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardView"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_centerHorizontal="true"
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/may" />
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cooperhewitt_heavy"
+                        android:textAlignment="viewStart"
+                        android:text="Pedidos"
+                        android:textStyle="bold"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Mis pedidos"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cooperhewitt_heavy"
+                        android:textAlignment="viewStart"
+                        android:textStyle="bold"
+                        android:text="Configuración de cuenta"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Inicio de sesión"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/us_direcciones"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Direcciones"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/us_datos"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Tus Datos"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/us_ser_vendedor"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Ser Vendedor"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/us_cambiar_contraseña"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Cambiar Contraseña"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cooperhewitt_heavy"
+                        android:textAlignment="viewStart"
+                        android:textStyle="bold"
+                        android:text="Datos y privacidad"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/us_aviso_privacidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Aviso de Privacidad"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/us_cambiar_rol"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Cambiar de Rol"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Cerrar Sesión"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/cooperhewitt_heavy"
+                        android:textAlignment="viewStart"
+                        android:textStyle="bold"
+                        android:text="Atención al cliente"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/us_contactanos"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="Contáctanos"
+                        android:layout_marginTop="3sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                    </Button>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

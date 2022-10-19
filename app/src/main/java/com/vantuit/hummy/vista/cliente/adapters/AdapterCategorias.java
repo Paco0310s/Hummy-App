@@ -21,17 +21,19 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Vi
     private List<Categoria> mData;
     private LayoutInflater inflater;
     private Context context;
+    int layaout;
     final OnItemClickListener listener;
 
     public interface OnItemClickListener{
         void onItemClick(Categoria item);
     }
 
-    public AdapterCategorias(List<Categoria> itemList, Context context, OnItemClickListener listener){
+    public AdapterCategorias(List<Categoria> itemList, Context context, OnItemClickListener listener, int layaout){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
         this.listener = listener;
+        this.layaout = layaout;
     }
 
     @Override
@@ -39,7 +41,7 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View view = inflater.inflate(R.layout.card_categorias, null);
+        View view = inflater.inflate(layaout, null);
         return new ViewHolder(view);
     }
 

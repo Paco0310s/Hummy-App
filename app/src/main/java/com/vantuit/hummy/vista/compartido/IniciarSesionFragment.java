@@ -28,7 +28,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.vista.cliente.InicioActivity;
 
 import java.util.Objects;
 
@@ -55,6 +61,12 @@ public class IniciarSesionFragment extends Fragment {
         etPassword = root.findViewById(R.id.etPassword);
         google_img = root.findViewById(R.id.iniciarGoogle);
         tvRegistrarse = root.findViewById(R.id.tvInscribirse);
+
+        LoginActivity registrarse = new LoginActivity();
+
+        /*tvRegistrarse.setOnClickListener(v -> {
+            registrarse.viewPager2.setCurrentItem(1);
+        });*/
 
         // Creamos nuestro GoogleSignInOptions para poder obtener el cliente
         gso = new GoogleSignInOptions.Builder(
@@ -102,6 +114,7 @@ public class IniciarSesionFragment extends Fragment {
     }
 
     private void SignIn() {
+
         Intent intent  = gsc.getSignInIntent();
         startActivityForResult(intent, RC_SIGN_IN);
     }
@@ -138,6 +151,20 @@ public class IniciarSesionFragment extends Fragment {
                         // Si se pudo iniciar sesión
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
+                            /*AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+
+                            Toast.makeText(requireActivity(), credential + "", Toast.LENGTH_SHORT).show();
+                            assert user != null;
+                            Toast.makeText(requireActivity(), user.getProviderId(), Toast.LENGTH_SHORT).show();*/
+
+                            /*assert user != null;
+                            if(user.isEmailVerified()) {
+                                Toast.makeText(requireActivity(), "Ya está en uso", Toast.LENGTH_SHORT).show();
+                            } else {
+
+                            }*/
+
+                            assert user != null;
                             iniciarSesion(user);
                         } else {
                             // Si no, mandamos un error
@@ -153,8 +180,31 @@ public class IniciarSesionFragment extends Fragment {
         if(user.getDisplayName() == null) name = user.getEmail();
         else name = user.getDisplayName();
 
-        Toast.makeText(requireActivity(), "Hola " + name, Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(requireActivity(), RolActivity.class);
-        startActivity(i);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Clientes");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String id = user.getUid();
+
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
+                    if(id.equals(ds.child("id").getValue().toString()))
+                    {
+                        if(ds.child("tipoUsuario").getValue().toString().equals("Cliente"))
+                        {
+                            Intent i = new Intent(getActivity(), InicioActivity.class);
+                            startActivity(i);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Toast.makeText(getActivity(), "Fallo", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
