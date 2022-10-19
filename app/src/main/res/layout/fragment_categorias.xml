@@ -9,9 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaCategorias"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FAE9E3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_height="wrap_content">
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

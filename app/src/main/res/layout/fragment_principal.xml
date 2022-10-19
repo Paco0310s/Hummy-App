@@ -86,7 +86,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="5dp"
-                                        android:text="Eviar a Azulejo 80"
+                                        android:text="Enviar a Azulejo 80"
                                         android:textColor="@color/white"
                                         android:textSize="11sp">
 

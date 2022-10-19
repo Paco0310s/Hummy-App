@@ -54,6 +54,7 @@ public class PrincipalFragment extends Fragment {
 
         imagen = root.findViewById(R.id.image_slider);
         buscar = root.findViewById(R.id.pri_buscar);
+        filtrar = root.findViewById(R.id.Filtrar);
         llDireccion = root.findViewById(R.id.llDireccion);
 
         ArrayList<SlideModel> images = new ArrayList<>();
@@ -63,6 +64,11 @@ public class PrincipalFragment extends Fragment {
 
         imagen.startSliding(3000);
         imagen.setImageList(images, ScaleTypes.CENTER_CROP);
+        
+        filtrar.setOnClickListener(view -> {
+            //Intent i = new Intent(getActivity().getApplicationContext(), ProductoInduvidual.class);
+            //startActivity(i);
+        });
 
         buscar.setOnClickListener(view -> {
             /*Fragment fragment = new FragmentBuscardor();
@@ -90,7 +96,7 @@ public class PrincipalFragment extends Fragment {
 
         establecimientos = new ArrayList<>();
 
-        /*establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas Ahogadas el Pepe",
+        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas Ahogadas el Pepe",
                 "Tortas ahogadas estilo sinaloa", "Abierto", "2.1"));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Pizza Gerardos",
                 "Pizzería", "Abierto", "4.9"));
@@ -101,9 +107,9 @@ public class PrincipalFragment extends Fragment {
         establecimientos.add(new Establecimiento(R.drawable.logo,"El Padrino",
                 "Restaurant/Bar ", "Abierto", "4.5"));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
         establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5"));
+                "Local establecido", "Abierto", "4.5","",""));
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Establecimientos");
@@ -139,13 +145,19 @@ public class PrincipalFragment extends Fragment {
     }
     public void adapter(View est)
     {
-        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext());
+        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext(),new AdapterEstablecimientos.OnItemClickListener() {
+            @Override
+            public void onItemClick(Establecimiento item) {
+                establecimientoIndividual(item);
+            }
+        });
         recyclerView = est.findViewById(R.id.listaEstablecimientos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
     }
+    
     public void guardaDatosTDA() //Guarda los datos del usuario en el TDA por si los necesitamos después
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();

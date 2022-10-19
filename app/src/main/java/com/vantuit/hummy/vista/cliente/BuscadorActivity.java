@@ -6,6 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
+
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,10 +32,11 @@ public class BuscadorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_buscador);
 
         buscador = findViewById(R.id.etBuscador);
-        viewPager2 = findViewById(R.id.visualisacion);
+        viewPager2 = findViewById(R.id.visualisacion_buscador);
         refresar = findViewById(R.id.btRegresar);
         refresar.setOnClickListener(view -> {
             onBackPressed();
@@ -73,7 +76,7 @@ public class BuscadorActivity extends AppCompatActivity {
 
         viewPager2.setAdapter(adapter);
 
-        TabLayout tableLayout =  findViewById(R.id.tablelayout);
+        TabLayout tableLayout =  findViewById(R.id.tablelayout_buscador);
 
         new TabLayoutMediator(tableLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override

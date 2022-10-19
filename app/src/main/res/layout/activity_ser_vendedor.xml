@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.cliente.SerVendedor">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_marginTop="60dp"
+        android:animationCache="true"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/ser_vendedor"
+                    android:layout_margin="10dp">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Beneficios de ser vendedor"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:justificationMode="inter_word"
+                    android:text="Encuentras el equilibro entre ser profesional y un buen cómplice. Precisamente por el hecho de tratar con una amplia gama de personas de todos los niveles aprendes a ser un buen vendedor pero también alguien cercano. La excelencia no siempre debe envolverse en seriedad, puedes invitar a tu cliente a una partida de pádel, quedar después de la reunión para tomaros juntos unas tapas y preguntarte qué tal le va todo, o enviarle una felicitación personalizada en una fecha señalada. Disfruta de la compañía de las personas con las que haces negocios y hazles sentir a importantes. Ganarás tu confianza a largo plazo y, quién sabe, algo mucho más valioso como es su amistad."
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Ingresa tu correo para contactarte"
+                    android:textSize="21sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginStart="25dp"
+                    android:hint="Tu correo aquí"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@android:drawable/sym_action_email"
+                    tools:ignore="MissingConstraints">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cooperhewitt_heavy"
+                        android:gravity=""
+                        android:inputType="textEmailAddress">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/ser_vendedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quiero ser vendedor "
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/tab_boton_completo">
+
+                </Button>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.cliente.Contactanos">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_marginTop="60dp"
+        android:animationCache="true"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="18dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/atencionalcliente"
+                    android:layout_margin="10dp">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/cooperhewitt_heavy"
+                    android:textAlignment="viewStart"
+                    android:textStyle="bold"
+                    android:text="Contactános"
+                    android:textSize="21sp" />
+
+                <Button
+                    android:id="@+id/co_enviar_mensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enviar Mensaje"
+                    android:layout_margin="7dp"
+                    android:textAlignment="textStart"
+                    android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/co_enviar_problema"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Informar sobre un problema "
+                    android:layout_margin="7dp"
+                    android:textAlignment="textStart"
+                    android:drawableEnd="@drawable/ic_derecha_blanco">
+
+                </Button>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

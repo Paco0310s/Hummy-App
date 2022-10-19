@@ -73,6 +73,7 @@ public class EstablecimientosFragment extends Fragment {
 
     public void init() {
         establecimientos = new ArrayList<>();
+        
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Establecimientos");
 
@@ -97,16 +98,26 @@ public class EstablecimientosFragment extends Fragment {
             }
         });
 
-
+        adapter();
     }
     public void adapter()
     {
-        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext());
+        Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext(),new AdapterEstablecimientos.OnItemClickListener() {
+            @Override
+            public void onItemClick(Establecimiento item) {
+                establecimientoIndividual(item);
+            }
+        });
         recyclerView = root.findViewById(R.id.listaEstablecimientos);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(
                 getActivity().getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
+    }
+
+    public void establecimientoIndividual (Establecimiento categoria){
+        Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        startActivity(i);
     }
 
 }
