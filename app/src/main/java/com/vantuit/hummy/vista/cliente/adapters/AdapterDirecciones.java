@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +19,17 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
     private List<Direccion> mData;
     private LayoutInflater inflater;
     private Context context;
+    final AdapterDirecciones.OnItemClickListener listener;
 
-    public AdapterDirecciones(List<Direccion> itemList, Context context){
+    public interface OnItemClickListener{
+        void onItemClick(Direccion item);
+    }
+
+    public AdapterDirecciones(List<Direccion> itemList, Context context, AdapterDirecciones.OnItemClickListener listener){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
+        this.listener = listener;
     }
 
     @Override
@@ -63,13 +70,19 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
         }
 
         void bindData(final Direccion item){
-            nombre.setText(item.getNombre());
-            codigopostal.setText(String.valueOf(item.getCodigopostal()));
+            nombre.setText(item.getNombreEncargado());
+            codigopostal.setText(String.valueOf(item.getCodigoPostal()));
             estado.setText(item.getEstado());
             municipio.setText(item.getMunicipio());
             colonia.setText(item.getColonia());
-            numeroexterior.setText(String.valueOf(item.getNumeroexterior()));
-            numerodetelefono.setText(item.getNumerodetelefono());
+            numeroexterior.setText(String.valueOf(item.getNumeroExterior()));
+            numerodetelefono.setText(item.getNumeroTelefono());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(item);
+                }
+            });
         }
     }
 

@@ -1,139 +1,132 @@
 package com.vantuit.hummy.modelo;
 
-public class Direccion {
+import java.io.Serializable;
 
-    String nombre;
-    int codigopostal;
-    String estado;
-    String municipio;
-    String colonia;
-    String calle;
-    int numerointerior;
-    int numeroexterior;
-    String calle1;
-    String calle2;
-    String tipodevivienda;
-    String numerodetelefono;
-    String descripciondedireccion;
+public class Direccion  implements Serializable {//Serializable sirve para facilitar el paso entre los objetos entre las actividades que creemos
 
-    public String getNombre() {
-        return nombre;
+    String calle, codigoPostal, colonia, entreCalle1, entreCalle2, estado, municipio, nombreEncargado, numeroExterior, numeroInterior, numeroTelefono, referencia, tipoDomicilio;
+
+    public Direccion() {
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+    public Direccion(String calle, String codigoPostal, String colonia, String entreCalle1, String entreCalle2, String estado, String municipio, String nombreEncargado, String numeroExterior, String numeroInterior, String numeroTelefono, String referencia, String tipoDomicilio) {
 
-    public int getCodigopostal() {
-        return codigopostal;
-    }
-
-    public void setCodigopostal(int codigopostal) {
-        this.codigopostal = codigopostal;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public String getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
-    }
-
-    public String getColonia() {
-        return colonia;
-    }
-
-    public void setColonia(String colonia) {
+        this.calle = calle;
+        this.codigoPostal = codigoPostal;
         this.colonia = colonia;
+        this.entreCalle1 = entreCalle1;
+        this.entreCalle2 = entreCalle2;
+        this.estado = estado;
+        this.municipio = municipio;
+        this.nombreEncargado = nombreEncargado;
+        this.numeroExterior = numeroExterior;
+        this.numeroInterior = numeroInterior;
+        this.numeroTelefono = numeroTelefono;
+        this.referencia = referencia;
+        this.tipoDomicilio = tipoDomicilio;
     }
 
     public String getCalle() {
         return calle;
     }
 
+    public String getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public String getEntreCalle1() {
+        return entreCalle1;
+    }
+
+    public String getEntreCalle2() {
+        return entreCalle2;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public String getNombreEncargado() {
+        return nombreEncargado;
+    }
+
+    public String getNumeroExterior() {
+        return numeroExterior;
+    }
+
+    public String getNumeroInterior() {
+        return numeroInterior;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public String getTipoDomicilio() {
+        return tipoDomicilio;
+    }
+
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
-    public int getNumerointerior() {
-        return numerointerior;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 
-    public void setNumerointerior(int numerointerior) {
-        this.numerointerior = numerointerior;
-    }
-
-    public int getNumeroexterior() {
-        return numeroexterior;
-    }
-
-    public void setNumeroexterior(int numeroexterior) {
-        this.numeroexterior = numeroexterior;
-    }
-
-    public String getCalle1() {
-        return calle1;
-    }
-
-    public void setCalle1(String calle1) {
-        this.calle1 = calle1;
-    }
-
-    public String getCalle2() {
-        return calle2;
-    }
-
-    public void setCalle2(String calle2) {
-        this.calle2 = calle2;
-    }
-
-    public String getTipodevivienda() {
-        return tipodevivienda;
-    }
-
-    public void setTipodevivienda(String tipodevivienda) {
-        this.tipodevivienda = tipodevivienda;
-    }
-
-    public String getNumerodetelefono() {
-        return numerodetelefono;
-    }
-
-    public void setNumerodetelefono(String numerodetelefono) {
-        this.numerodetelefono = numerodetelefono;
-    }
-
-    public String getDescripciondedireccion() {
-        return descripciondedireccion;
-    }
-
-    public void setDescripciondedireccion(String descripciondedireccion) {
-        this.descripciondedireccion = descripciondedireccion;
-    }
-
-    public Direccion(String nombre, int codigopostal, String estado, String municipio, String colonia, String calle, int numerointerior, int numeroexterior, String calle1, String calle2, String tipodevivienda, String numerodetelefono, String descripciondedireccion) {
-        this.nombre = nombre;
-        this.codigopostal = codigopostal;
-        this.estado = estado;
-        this.municipio = municipio;
+    public void setColonia(String colonia) {
         this.colonia = colonia;
-        this.calle = calle;
-        this.numerointerior = numerointerior;
-        this.numeroexterior = numeroexterior;
-        this.calle1 = calle1;
-        this.calle2 = calle2;
-        this.tipodevivienda = tipodevivienda;
-        this.numerodetelefono = numerodetelefono;
-        this.descripciondedireccion = descripciondedireccion;
     }
 
+    public void setEntreCalle1(String entreCalle1) {
+        this.entreCalle1 = entreCalle1;
+    }
+
+    public void setEntreCalle2(String entreCalle2) {
+        this.entreCalle2 = entreCalle2;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public void setNombreEncargado(String nombreEncargado) {
+        this.nombreEncargado = nombreEncargado;
+    }
+
+    public void setNumeroExterior(String numeroExterior) {
+        this.numeroExterior = numeroExterior;
+    }
+
+    public void setNumeroInterior(String numeroInterior) {
+        this.numeroInterior = numeroInterior;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public void setTipoDomicilio(String tipoDomicilio) {
+        this.tipoDomicilio = tipoDomicilio;
+    }
 }
