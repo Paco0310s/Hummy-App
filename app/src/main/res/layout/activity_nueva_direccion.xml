@@ -319,7 +319,7 @@
                     android:layout_marginBottom="15dp">
 
                     <RadioButton
-                        android:id="@+id/radioButton2"
+                        android:id="@+id/rbVivienda"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
@@ -327,7 +327,7 @@
                         android:text="Vivienda" />
 
                     <RadioButton
-                        android:id="@+id/radioButton3"
+                        android:id="@+id/rbLugarTrabajo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
@@ -335,7 +335,7 @@
                         android:text="Lugar de Trabajo" />
 
                     <RadioButton
-                        android:id="@+id/radioButton4"
+                        android:id="@+id/rbEdificio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
