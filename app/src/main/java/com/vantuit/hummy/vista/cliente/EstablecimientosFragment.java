@@ -63,17 +63,12 @@ public class EstablecimientosFragment extends Fragment {
         }
 
     }
-    public void nel2()
-    {
-        LayoutInflater inflater = getLayoutInflater();
-        View myView = inflater.inflate(R.layout.activity_buscador, null);
-        TextView buscador = myView.findViewById(R.id.etBuscador);
-    }
+
 
 
     public void init() {
         establecimientos = new ArrayList<>();
-        
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Establecimientos");
 

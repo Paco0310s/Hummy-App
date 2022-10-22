@@ -83,10 +83,11 @@
                                     </ImageView>
 
                                     <TextView
+                                        android:id="@+id/tvDireccion"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="5dp"
-                                        android:text="Enviar a Azulejo 80"
+                                        android:text="Enviar a "
                                         android:textColor="@color/white"
                                         android:textSize="11sp">
 

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
@@ -44,6 +45,8 @@ public class PrincipalFragment extends Fragment {
     List<Establecimiento> establecimientos;
     AdapterEstablecimientos Adapter;
     RecyclerView recyclerView;
+    TextView tvDireccion;
+    String direccion;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -56,6 +59,9 @@ public class PrincipalFragment extends Fragment {
         buscar = root.findViewById(R.id.pri_buscar);
         filtrar = root.findViewById(R.id.Filtrar);
         llDireccion = root.findViewById(R.id.llDireccion);
+        tvDireccion = root.findViewById(R.id.tvDireccion);
+
+
 
         ArrayList<SlideModel> images = new ArrayList<>();
 
@@ -176,11 +182,16 @@ public class PrincipalFragment extends Fragment {
                     {
                         Usuario usuario = new Usuario();
                         usuario.setCORREO(ds.child("correo").getValue().toString());
-                        usuario.setDIRECCION(ds.child("nombre").getValue().toString());
+                        direccion = ds.child("direccion").getValue().toString();
+                        usuario.setDIRECCION(direccion);
                         usuario.setID(ds.child("id").getValue().toString());
                         usuario.setTELEFONO(ds.child("telefono").getValue().toString());
                         usuario.setTIPOUSUARIO(ds.child("tipoUsuario").getValue().toString());
                         Constantes.USUARIO = usuario;
+                        if(direccion.equals("")) {
+                            Intent i = new Intent(getActivity().getApplicationContext(), NuevaDireccionActivity.class);
+                            startActivity(i);
+                        } else tvDireccion.setText("Enviar a "+direccion);
                     }
                 }
             }
@@ -191,6 +202,9 @@ public class PrincipalFragment extends Fragment {
             }
         });
     }
+
+    //Checa las direcciones agregadas
+
 
 
 }
