@@ -32,6 +32,7 @@ import com.vantuit.hummy.R;
 import com.vantuit.hummy.databinding.ActivityMainBinding;
 import com.vantuit.hummy.modelo.Carrito;
 import com.vantuit.hummy.modelo.Comunicacion;
+import com.vantuit.hummy.vista.RealidadVirtual.RA;
 
 public class ProductoInduvidual extends AppCompatActivity  {
 
@@ -51,9 +52,14 @@ public class ProductoInduvidual extends AppCompatActivity  {
         FrameLayout includedLayout = findViewById(R.id.contenido);
 
         ImageButton ordenar = includedLayout.findViewById(R.id.ver_opiniones);
+        ImageButton realidadvirtual = includedLayout.findViewById(R.id.ver_RA);
 
         ordenar.setOnClickListener(view -> {
             Intent i = new Intent(ProductoInduvidual.this, ListaOpiniones.class);
+            startActivity(i);
+        });
+        realidadvirtual.setOnClickListener(view -> {
+            Intent i = new Intent(ProductoInduvidual.this, RA.class);
             startActivity(i);
         });
 
