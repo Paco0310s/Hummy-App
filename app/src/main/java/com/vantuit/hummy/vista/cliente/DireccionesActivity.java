@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DireccionesActivity extends AppCompatActivity {
-    List<Direccion> direcciones;
+    List<Direccion> direcciones = new ArrayList<>();
     AdapterDirecciones Adapter;
     RecyclerView recyclerView;
     Button bAgregarDireccion;
@@ -58,7 +58,7 @@ public class DireccionesActivity extends AppCompatActivity {
     }
 
     public void init() {
-        direcciones = new ArrayList<>();
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String id = user.getUid();
@@ -69,6 +69,7 @@ public class DireccionesActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                direcciones.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     Direccion dir = ds.getValue(Direccion.class);
                     direcciones.add(dir);

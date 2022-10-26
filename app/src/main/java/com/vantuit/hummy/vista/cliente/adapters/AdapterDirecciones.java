@@ -1,16 +1,31 @@
 package com.vantuit.hummy.vista.cliente.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Direccion;
+import com.vantuit.hummy.vista.cliente.DireccionesActivity;
+import com.vantuit.hummy.vista.cliente.InicioActivity;
+import com.vantuit.hummy.vista.cliente.NuevaDireccionActivity;
 
 import java.util.List;
 
@@ -38,6 +53,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = inflater.from(parent.getContext()).inflate(R.layout.card_domicilio, null, false);
+
         return new ViewHolder(view);
     }
 
@@ -46,6 +62,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
         holder.bindData(mData.get(position));
 
     }
+
 
     public void setItems(List<Direccion> items){mData=items;}
 
@@ -57,6 +74,8 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
         TextView colonia;
         TextView numeroexterior;
         TextView numerodetelefono;
+        ImageButton btnEliminar;
+
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -67,6 +86,8 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             colonia = itemView.findViewById(R.id.colonia);
             numeroexterior = itemView.findViewById(R.id.numero);
             numerodetelefono = itemView.findViewById(R.id.telefono);
+            btnEliminar = itemView.findViewById(R.id.eliminar);
+
         }
 
         void bindData(final Direccion item){
@@ -83,7 +104,23 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
                     listener.onItemClick(item);
                 }
             });
+
+
+            btnEliminar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    eliminarPedido(item);
+                }
+            });
         }
+        public void eliminarPedido(Direccion item) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String id = user.getUid();
+            FirebaseDatabase database = FirebaseDatabase.getInstance();//Conexion con firebase
+            DatabaseReference myRef = database.getReference("Direccion");
+            myRef.child(id).child(item.getCalle()+item.getNumeroExterior()).removeValue();
+        }
+
     }
 
 }
