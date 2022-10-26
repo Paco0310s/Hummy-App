@@ -86,6 +86,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             colonia = itemView.findViewById(R.id.colonia);
             numeroexterior = itemView.findViewById(R.id.numero);
             numerodetelefono = itemView.findViewById(R.id.telefono);
+
             colonia.setSelected(true);
             nombre.setSelected(true);
             numerodetelefono.setSelected(true);
@@ -115,6 +116,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
                     eliminarPedido(item);
                 }
             });
+            
         }
         public void eliminarPedido(Direccion item) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
