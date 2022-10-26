@@ -9,234 +9,319 @@
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical">
+        android:padding="5dp">
 
-        <RelativeLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="6dp">
+            android:weightSum="4">
 
-            <ImageView
-                android:id="@+id/imagen"
-                android:layout_width="60dp"
-                android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:src="@drawable/ic_home">
-
-            </ImageView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4">
 
             <LinearLayout
-                android:id="@+id/linearlayout"
-                android:layout_width="198dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/imagen"
-                android:layout_toRightOf="@+id/imagen"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight=".5">
+
+                <ImageView
+                    android:id="@+id/imagen"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:scaleType="center"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_home">
+
+                </ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2.9">
+
 
                 <LinearLayout
+                    android:id="@+id/linearlayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/colonia"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginRight="10dp"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:text="Azulejo"
-                        android:textSize="20sp"
-                        android:textStyle="bold">
+                        android:orientation="horizontal">
 
-                    </TextView>
+                        <TextView
+                            android:id="@+id/calle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="29dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="2dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="Azulejo"
+                            android:textSize="20sp"
+                            android:textStyle="bold">
 
-                    <TextView
-                        android:id="@+id/numero"
-                        android:layout_width="wrap_content"
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:text="#"
+                            android:textSize="20sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/numero"
+                            android:layout_width="wrap_content"
+                            android:layout_height="29dp"
+                            android:layout_marginBottom="2dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="80"
+                            android:textSize="20sp"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:text="#80"
-                        android:textSize="20sp"
-                        android:textStyle="bold">
+                        android:orientation="horizontal">
 
-                    </TextView>
+                        <TextView
+                            android:id="@+id/codigoPostal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="47899"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
 
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="-"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/municipio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="Ocotlan"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
 
-                    <TextView
-                        android:id="@+id/codigoPostal"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="-"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/estado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="Jalisco"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:layout_marginRight="4dp"
-                        android:text="47899"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
+                        android:layout_marginTop="7dp"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:layout_marginRight="4dp"
-                        android:text="-"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
+                        <TextView
+                            android:id="@+id/Nombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginBottom="2dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="Oscar Medina"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
 
-                    <TextView
-                        android:id="@+id/municipio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="4dp"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:text="Ocotlan"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
+                        </TextView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:layout_marginRight="4dp"
-                        android:text="-"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:ellipsize="marquee"
+                            android:focusable="false"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="-"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
 
-                    <TextView
-                        android:id="@+id/estado"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:text="Ocotlan"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
+                        <TextView
+                            android:id="@+id/telefono"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/cooperhewitt_heavy"
+                            android:text="3319549202"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:focusable="false"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit="marquee_forever">
+
+                        </TextView>
+
+                    </LinearLayout>
 
 
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="7dp"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/Nombre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:layout_marginRight="4dp"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:text="Oscar Medina"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="marquee"
-                        android:focusable="false"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:marqueeRepeatLimit="marquee_forever"
-                        android:scrollHorizontally="true"
-                        android:singleLine="true"
-                        android:layout_marginRight="4dp"
-                        android:text="-"
-                        android:textSize="14sp"
-                        android:textStyle="normal"/>
-
-                    <TextView
-                        android:id="@+id/telefono"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
-                        android:fontFamily="@font/cooperhewitt_heavy"
-                        android:text="3319549202"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </TextView>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+
+
             <LinearLayout
-                android:id="@+id/linearlayout3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/linearlayout"
-                android:layout_marginEnd="2dp"
-                android:layout_marginTop="6dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
-                android:clickable="true"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="0.6">
 
                 <ImageButton
                     android:id="@+id/eliminar"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:backgroundTint="#00FFFFFF"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:layout_marginStart="10dp"
                     android:clickable="true"
                     android:src="@drawable/ic_eliminar">
                 </ImageButton>
 
             </LinearLayout>
 
-        </RelativeLayout>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="7dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:background="#eee"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="17dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="9dp"
+                android:textColor="#5D40FA"
+                android:fontFamily="@font/cooperhewitt_heavy"
+                android:text="Editar"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:focusable="false"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever">
+
+            </TextView>
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+    </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
