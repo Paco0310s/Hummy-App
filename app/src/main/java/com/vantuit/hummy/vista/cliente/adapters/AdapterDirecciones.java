@@ -83,7 +83,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             codigopostal = itemView.findViewById(R.id.codigoPostal);
             estado = itemView.findViewById(R.id.estado);
             municipio = itemView.findViewById(R.id.municipio);
-            colonia = itemView.findViewById(R.id.colonia);
+            colonia = itemView.findViewById(R.id.calle);
             numeroexterior = itemView.findViewById(R.id.numero);
             numerodetelefono = itemView.findViewById(R.id.telefono);
 
