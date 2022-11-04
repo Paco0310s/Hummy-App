@@ -1,7 +1,6 @@
 package com.vantuit.hummy.vista.administrador;
 
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,7 +10,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vantuit.hummy.R;
@@ -78,10 +76,6 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
-    }
-
-    public void nuevoEstablecimiento(View v){
-
     }
 
 }
