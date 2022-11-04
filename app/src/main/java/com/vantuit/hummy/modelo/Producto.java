@@ -63,6 +63,14 @@ public class Producto {
         this.vendedor = vendedor;
         this.precio = precio;
         this.calificacion = calificacion;
-        //this.descripcion = descripcion;
+    }
+
+    public Producto(int imagen, String nombre, String vendedor, String precio, String calificacion, String descripcion) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.vendedor = vendedor;
+        this.precio = precio;
+        this.calificacion = calificacion;
+        this.descripcion = descripcion;
     }
 }

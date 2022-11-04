@@ -60,7 +60,7 @@ public class AdapterAdminEstablecimiento_Productos extends RecyclerView.Adapter<
 
         void bindData(final Producto item){
             nombre.setText(item.getNombre());
-            //descripcion.setText(item.getDes());
+            descripcion.setText(item.getDescripcion());
             precio.setText(item.getPrecio());
             iconImage.setImageResource(item.getImagen());
 

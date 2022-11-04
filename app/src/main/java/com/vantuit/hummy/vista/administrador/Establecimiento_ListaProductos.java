@@ -1,5 +1,6 @@
 package com.vantuit.hummy.vista.administrador;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -35,6 +36,9 @@ public class Establecimiento_ListaProductos extends AppCompatActivity {
         toolbar.setTitle("Lista de Productos de Santino's Pizza");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton bNuevoEst = findViewById(R.id.bAgregarProducto);
         bNuevoEst.setOnClickListener(new View.OnClickListener() {
@@ -51,21 +55,21 @@ public class Establecimiento_ListaProductos extends AppCompatActivity {
     public void init() {
         productos = new ArrayList<>();
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
+        productos.add(new Producto(R.drawable.pizza,"Pizzade Peperonni",
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
-        productos.add(new Producto(R.drawable.pizza,"Pizza de Peperonni",
-                "", "$200", ""));
+                "", "$200", "", "Pizza de Peperonni de tamaños chica, mediana y grande"));
         adapter();
 
     }
@@ -76,5 +80,11 @@ public class Establecimiento_ListaProductos extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(Adapter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 }

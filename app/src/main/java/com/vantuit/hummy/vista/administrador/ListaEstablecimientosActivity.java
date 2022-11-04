@@ -1,6 +1,6 @@
 package com.vantuit.hummy.vista.administrador;
 
-
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaEstablecimientosActivity extends AppCompatActivity {
-
+    View root;
     List<Establecimiento> establecimientos;
     AdapterAdminEstablecimientos Adapter;
     RecyclerView recyclerView;
@@ -34,6 +34,9 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
         toolbar.setTitle("Lista de Establecimientos");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton bNuevoEst = findViewById(R.id.bAgregarEstablecimiento);
         bNuevoEst.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +46,6 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
         init();
     }
@@ -78,4 +80,9 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
         recyclerView.setAdapter(Adapter);
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
+    }
 }
