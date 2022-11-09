@@ -77,16 +77,12 @@ public class EstablecimiestoIndividual extends AppCompatActivity {
 
     public void initProducto() {
         productos = new ArrayList<>();
-        productos.add(new Producto(R.drawable.logo, "Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
+        productos.add(new Producto(R.drawable.pizzapepperonijulio, "Pizza Pepperoni",
+                "Julio Pizza","200","4.9"));
+        productos.add(new Producto(R.drawable.pizzaquesojulio,"Pizza Queso",
+                "Julio Pizza","230","4.9"));
+        productos.add(new Producto(R.drawable.pizzaespecialjulio,"Pizza Especial",
+                "Julio Pizza","270","4.9"));
         adapterProducto();
 
     }
