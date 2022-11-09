@@ -1,12 +1,14 @@
 package com.vantuit.hummy.modelo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Direccion  implements Serializable {//Serializable sirve para facilitar el paso entre los objetos entre las actividades que creemos
 
     String calle, codigoPostal, colonia, entreCalle1, entreCalle2, estado, municipio, nombreEncargado, numeroExterior, numeroInterior, numeroTelefono, referencia, tipoDomicilio;
 
     public Direccion() {
+
     }
 
     public Direccion(String calle, String codigoPostal, String colonia, String entreCalle1, String entreCalle2, String estado, String municipio, String nombreEncargado, String numeroExterior, String numeroInterior, String numeroTelefono, String referencia, String tipoDomicilio) {
