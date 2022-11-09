@@ -1,6 +1,7 @@
 package com.vantuit.hummy.vista.administrador.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
+import com.vantuit.hummy.vista.administrador.EstablecimientoProductoActivity;
+import com.vantuit.hummy.vista.administrador.Establecimiento_ListaProductos;
+
 import java.util.List;
 
 public class AdapterAdminEstablecimientos extends RecyclerView.Adapter<AdapterAdminEstablecimientos.ViewHolder> {
@@ -49,6 +53,14 @@ public class AdapterAdminEstablecimientos extends RecyclerView.Adapter<AdapterAd
             nombre = itemView.findViewById(R.id.es_nombre);
             id = itemView.findViewById(R.id.es_id);
             iconImage = itemView.findViewById(R.id.imagen);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, Establecimiento_ListaProductos.class);
+                    context.startActivity(i);
+                }
+            });
         }
 
         void bindData(final Establecimiento item){
