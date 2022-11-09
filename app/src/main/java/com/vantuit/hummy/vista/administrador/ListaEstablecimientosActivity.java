@@ -52,22 +52,23 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
 
     public void init() {
         establecimientos = new ArrayList<>();
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+        ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+
         adapter();
 
     }

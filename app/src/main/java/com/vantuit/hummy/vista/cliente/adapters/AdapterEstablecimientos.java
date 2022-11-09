@@ -7,11 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
-
+import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstablecimientos.ViewHolder>{
@@ -60,6 +66,10 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
             estado = itemView.findViewById(R.id.estadoTienda);
             calificacion = itemView.findViewById(R.id.cal_establecimiento);
             iconImage = itemView.findViewById(R.id.imagen);
+
+            nombre.setSelected(true);
+            descripcion.setSelected(true);
+
         }
 
         public void bindData(final Establecimiento item){
@@ -68,7 +78,28 @@ public class AdapterEstablecimientos extends RecyclerView.Adapter<AdapterEstable
             estado.setText(item.getEstado());
             calificacion.setText(item.getCalificacion());
             if(item.getFoto()==null || item.getFoto().isEmpty()) iconImage.setImageResource(R.drawable.logo);
-            // else iconImage.setImageResource(R.drawable.logo);
+            else {
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+                DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+                DatabaseReference getImage = databaseReference.child("Establecimientos/" + item.getId() + "/foto");
+
+                getImage.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String link = dataSnapshot.getValue(String.class);
+
+                        assert link != null;
+                        if(!link.isEmpty()) Picasso.get().load(link).into(iconImage);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
