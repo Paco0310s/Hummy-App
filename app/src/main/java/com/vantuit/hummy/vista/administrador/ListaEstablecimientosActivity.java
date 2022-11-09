@@ -36,6 +36,9 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
         toolbar.setTitle("Lista de Establecimientos");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton bNuevoEst = findViewById(R.id.bAgregarEstablecimiento);
         bNuevoEst.setOnClickListener(new View.OnClickListener() {
@@ -52,22 +55,23 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
 
     public void init() {
         establecimientos = new ArrayList<>();
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
-        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santino's Pizza",
-                "", "", "","","00001"));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+        ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+        establecimientos.add(new Establecimiento(R.drawable.santinos,"Santinós Pizza","Vendemos Pizza","","","",""
+                ,"","","","","","",""));
+
         adapter();
 
     }
@@ -82,6 +86,12 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
 
     public void nuevoEstablecimiento(View v){
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 
 }
