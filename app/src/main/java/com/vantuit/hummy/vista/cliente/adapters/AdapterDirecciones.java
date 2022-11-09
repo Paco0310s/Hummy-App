@@ -22,10 +22,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Direccion;
 import com.vantuit.hummy.vista.cliente.DireccionesActivity;
 import com.vantuit.hummy.vista.cliente.InicioActivity;
 import com.vantuit.hummy.vista.cliente.NuevaDireccionActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -74,24 +77,54 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
         TextView colonia;
         TextView numeroexterior;
         TextView numerodetelefono;
+        TextView editar;
         ImageButton btnEliminar;
+
 
 
         ViewHolder(View itemView) {
             super(itemView);
+
             nombre = itemView.findViewById(R.id.Nombre);
             codigopostal = itemView.findViewById(R.id.codigoPostal);
             estado = itemView.findViewById(R.id.estado);
             municipio = itemView.findViewById(R.id.municipio);
-            colonia = itemView.findViewById(R.id.colonia);
+            colonia = itemView.findViewById(R.id.calle);
             numeroexterior = itemView.findViewById(R.id.numero);
             numerodetelefono = itemView.findViewById(R.id.telefono);
+            editar = itemView.findViewById(R.id.bEditar);
 
             colonia.setSelected(true);
             nombre.setSelected(true);
             numerodetelefono.setSelected(true);
             numeroexterior.setSelected(true);
             btnEliminar = itemView.findViewById(R.id.eliminar);
+
+
+            // Boton eliminar
+            editar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    String id = user.getUid();
+                    Direccion direccion = mData.get(getAdapterPosition());
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("Direccion/"+id);
+                    Toast.makeText(context, direccion.getCalle(), Toast.LENGTH_SHORT).show();
+
+
+                    Intent i = new Intent(context, NuevaDireccionActivity.class);
+                    i.putExtra("getDireccion", direccion);
+                    context.startActivity(i);
+                }
+            });
+
+
+            //View Holder
+
+
+
         }
 
         void bindData(final Direccion item){
@@ -102,6 +135,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             colonia.setText(item.getColonia());
             numeroexterior.setText(String.valueOf(item.getNumeroExterior()));
             numerodetelefono.setText(item.getNumeroTelefono());
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -113,17 +147,27 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             btnEliminar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    eliminarPedido(item);
+                    eliminarDireccion(item);
                 }
             });
             
         }
-        public void eliminarPedido(Direccion item) {
+        public void eliminarDireccion(Direccion item) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            String id = user.getUid();
+            String id = user.getUid(); //Id del usuario
             FirebaseDatabase database = FirebaseDatabase.getInstance();//Conexion con firebase
             DatabaseReference myRef = database.getReference("Direccion");
-            myRef.child(id).child(item.getCalle()+item.getNumeroExterior()).removeValue();
+            myRef.child(id).child(item.getCalle()+item.getNumeroExterior()).removeValue(); //Elimina la dirección
+
+            /*//Elimina la direccion predeterminada del usuario en Firebase
+            DatabaseReference myRefUser = database.getReference("Clientes");
+            myRefUser.child(id).child("direccion").setValue("");*/
+            //Elimina la dirección predetermina del TDA
+            Constantes.USUARIO.setDIRECCION("");
+
+        }
+        public void editaDireccion(Direccion item) {
+
         }
 
     }

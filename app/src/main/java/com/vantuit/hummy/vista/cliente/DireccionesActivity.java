@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Direccion;
 import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.vista.cliente.adapters.AdapterDirecciones;
@@ -68,7 +69,7 @@ public class DireccionesActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) { //llena la lista del Card View
                 direcciones.clear();
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     Direccion dir = ds.getValue(Direccion.class);
@@ -84,11 +85,13 @@ public class DireccionesActivity extends AppCompatActivity {
     public void adapter()
     {
         Adapter = new AdapterDirecciones(direcciones, this, new AdapterDirecciones.OnItemClickListener() {
-            @Override
+            @Override // On click del adapter
             public void onItemClick(Direccion item) {
                 seleccionaDireccion(item);
             }
         });
+
+
         recyclerView = findViewById(R.id.listaDirecciones);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(
@@ -102,7 +105,8 @@ public class DireccionesActivity extends AppCompatActivity {
         String id = user.getUid();
         DatabaseReference myRefUsser = database.getReference("Clientes");
         myRefUsser.child(id).child("direccion").setValue(item.getCalle()+" #"+item.getNumeroExterior()+item.getNumeroInterior());
-
+        //Agrega la direccion al TDA
+        Constantes.USUARIO.setDIRECCION(item.getCalle()+" #"+item.getNumeroExterior()+item.getNumeroInterior());
 
         //Con esto puedes pasar la info a otra clase o activity
         /*Intent intent = new Intent(this, DescriptionActivity.class);
@@ -112,7 +116,12 @@ public class DireccionesActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        if (!Constantes.USUARIO.getDIRECCION().equals(""))
+        {
+            onBackPressed();
+            return false;
+        } else Toast.makeText(this, "Elija una dirección Predeterminada", Toast.LENGTH_SHORT).show();
+
         return false;
     }
 
