@@ -7,6 +7,7 @@ public class Producto {
     String vendedor;
     String precio;
     String calificacion;
+    String descripcion;
 
     public int getImagen() {
         return imagen;
@@ -48,11 +49,28 @@ public class Producto {
         this.calificacion = calificacion;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public Producto(int imagen, String nombre, String vendedor, String precio, String calificacion) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.vendedor = vendedor;
         this.precio = precio;
         this.calificacion = calificacion;
+    }
+
+    public Producto(int imagen, String nombre, String vendedor, String precio, String calificacion, String descripcion) {
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.vendedor = vendedor;
+        this.precio = precio;
+        this.calificacion = calificacion;
+        this.descripcion = descripcion;
     }
 }

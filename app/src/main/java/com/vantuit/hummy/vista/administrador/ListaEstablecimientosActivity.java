@@ -1,6 +1,5 @@
 package com.vantuit.hummy.vista.administrador;
 
-
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,7 +10,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.vantuit.hummy.R;
@@ -22,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaEstablecimientosActivity extends AppCompatActivity {
-
+    View root;
     List<Establecimiento> establecimientos;
     AdapterAdminEstablecimientos Adapter;
     RecyclerView recyclerView;
@@ -48,7 +46,6 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
         init();
     }
@@ -84,14 +81,9 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
         recyclerView.setAdapter(Adapter);
     }
 
-    public void nuevoEstablecimiento(View v){
-
-    }
-
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return false;
     }
-
 }
