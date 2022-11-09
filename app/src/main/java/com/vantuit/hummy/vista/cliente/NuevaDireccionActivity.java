@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
+import com.vantuit.hummy.modelo.Direccion;
 import com.vantuit.hummy.modelo.Usuario;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class NuevaDireccionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva_direccion);
-        autocompletaDireccion("47862");
+        completaCodigoPostal("47862");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Nueva Dirección");
@@ -52,6 +53,10 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        Direccion direccion =  (Direccion) getIntent().getSerializableExtra("getDireccion");
+
+
 
         etNombreEncargado = findViewById(R.id.etNombreEncargado);
         etCodigoPostal = findViewById(R.id.etCodigoPostal);
@@ -74,9 +79,15 @@ public class NuevaDireccionActivity extends AppCompatActivity {
 
         etNumeroTelefono.setText(Constantes.USUARIO.getTELEFONO());
 
-        anadir.setOnClickListener(view -> {
-            guardaDireccion();
-        });
+        if(valida())
+        {
+            anadir.setOnClickListener(view -> {
+                guardaDireccion();
+            });
+        }
+
+
+        if(direccion != null) completaDireccion(direccion);
 
         etCodigoPostal.addTextChangedListener(new TextWatcher() {
             @Override
@@ -90,7 +101,7 @@ public class NuevaDireccionActivity extends AppCompatActivity {
                 {
                     etEstado.setEnabled(false);
                     etMunicipio.setEnabled(false);
-                    autocompletaDireccion(etCodigoPostal.getText().toString());
+                    completaCodigoPostal(etCodigoPostal.getText().toString());
                 }
                 else etCodigoPostal.setError("Pon un codigo válido");
 
@@ -112,7 +123,7 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         return false;
     }
 
-    public void autocompletaDireccion(String CodPos) //Guarda los datos del usuario en el TDA por si los necesitamos después
+    public void completaCodigoPostal(String CodPos) //Autocompleta Codigo postal
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();//Conexion con firebase
         DatabaseReference myRef = database.getReference("codigos_postales");
@@ -120,8 +131,10 @@ public class NuevaDireccionActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ArrayList<String> colonia = new ArrayList<>(); //Array list donde se almacenarán los datos del Spinner
+                colonia.add("Seleccione Una Opción");
                 int i = 0; //Variable de contador de indice
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {//For each para buscar en Firebase
+
                     if(CodPos.equals(ds.child("codigo").getValue().toString()))//Si el CP que ingresó == al que está en firebase
                     {   //Lo imprime en los Edit Text
                         etEstado.setText(ds.child("estado").getValue().toString());
@@ -138,7 +151,6 @@ public class NuevaDireccionActivity extends AppCompatActivity {
                     etEstado.setEnabled(true);
                     etMunicipio.setEnabled(true);
                 }
-                //Hago Visibles los campos
                 ArrayAdapter adapter = new ArrayAdapter<String>(NuevaDireccionActivity.this.getApplicationContext(), R.layout.spinner_item, colonia);
                 adapter.setDropDownViewResource(R.layout.spinner_item);
                 spColonia.setAdapter(adapter);
@@ -158,6 +170,27 @@ public class NuevaDireccionActivity extends AppCompatActivity {
                 // Failed to read value
             }
         });
+    }
+    public void completaDireccion(Direccion direccion)
+    {
+        etNombreEncargado.setText(direccion.getNombreEncargado());
+        etCodigoPostal.setText(direccion.getCodigoPostal());
+        etEstado.setText(direccion.getEstado());
+        etMunicipio.setText(direccion.getMunicipio());
+        // Completa el Spinner del codigo postal
+        completaCodigoPostal(direccion.getCodigoPostal());
+        etCalle.setText(direccion.getCalle());
+        etCalle.setEnabled(false);
+        etNumeroExterior.setText(direccion.getNumeroExterior());
+        etNumeroInterior.setText(direccion.getNumeroInterior());
+        etEntreCalles1.setText(direccion.getEntreCalle1());
+        etEntreCalles2.setText(direccion.getEntreCalle2());
+        String tipoDomicilio = direccion.getTipoDomicilio();
+        if(tipoDomicilio.equals("Vivienda"))rbVivienda.setChecked(true);
+        if(tipoDomicilio.equals("Lugar de trabajo"))rbLugarTrabajo.setChecked(true);
+        if(tipoDomicilio.equals("Edificio"))rbEdificio.setChecked(true);
+        etNumeroTelefono.setText(direccion.getNumeroTelefono());
+        etRefDom.setText(direccion.getReferencia());
     }
     public void guardaDireccion()//Guarda la dirección en Firebase
     {
@@ -183,6 +216,7 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         myRef.child(id).child(calle+numero).child("numeroTelefono").setValue(etNumeroTelefono.getText().toString());
         myRef.child(id).child(calle+numero).child("referencia").setValue(etRefDom.getText().toString());
 
+
         // Guardamos la direccion predeterminada en firebase´´
 
 
@@ -197,5 +231,11 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         startActivity(i);
         finish();
 
+    }
+    public boolean valida()
+    {
+        String errorMessage = "Llene Todos los campos";
+        if(etNombreEncargado.length()==0){ etNombreEncargado.setError(errorMessage); return false;}
+        return true;
     }
 }
