@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.DialogFragment;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -23,15 +22,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -44,11 +39,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
-import com.vantuit.hummy.vista.RealidadVirtual.TimePickerFragment;
-import com.vantuit.hummy.vista.cliente.InicioActivity;
 
 import java.io.ByteArrayOutputStream;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -84,7 +76,7 @@ public class NuevoEstablecimientoActivity extends AppCompatActivity {
         nombre = findViewById(R.id.es_nombre_establecimiento);
         descripcion = findViewById(R.id.es_descripcion_establecimiento);
         guardar = findViewById(R.id.bGuardarEst);
-        cambiarlogo = findViewById(R.id.bCambiarLogo_est);
+        cambiarlogo = findViewById(R.id.bCambiarLogo);
         si = findViewById(R.id.ra_si);
         no = findViewById(R.id.ra_no);
         horario_sabado = findViewById(R.id.horario_sabado);
