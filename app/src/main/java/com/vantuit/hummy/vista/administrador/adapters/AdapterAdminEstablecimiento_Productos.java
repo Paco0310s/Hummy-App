@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Producto;
+import com.vantuit.hummy.vista.administrador.EstablecimientoProductoActivity;
+import com.vantuit.hummy.vista.administrador.Establecimiento_ListaProductos;
 
 import java.util.List;
 
@@ -56,6 +59,14 @@ public class AdapterAdminEstablecimiento_Productos extends RecyclerView.Adapter<
             descripcion = itemView.findViewById(R.id.es_descripcion);
             precio = itemView.findViewById(R.id.es_precio);
             iconImage = itemView.findViewById(R.id.imagen);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, EstablecimientoProductoActivity.class);
+                    context.startActivity(i);
+                }
+            });
         }
 
         void bindData(final Producto item){
