@@ -155,45 +155,16 @@
                     android:inputType="number" />
             </RelativeLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <Button
+                android:id="@+id/bIngredientes"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/bIngredientes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/cooperhewitt_heavy"
-                    android:text="Ingredientes"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/bExtras"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/cooperhewitt_heavy"
-                    android:text="Extras"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/bTamaños"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/cooperhewitt_heavy"
-                    android:text="Tamaños"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                android:layout_weight="1"
+                android:fontFamily="@font/cooperhewitt_heavy"
+                android:text="Administrar Ingredientes"
+                android:textSize="10sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/bGuardarProducto"

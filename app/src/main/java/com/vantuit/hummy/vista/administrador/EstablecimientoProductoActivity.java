@@ -36,23 +36,6 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
             }
         });
 
-        Button bExtras = findViewById(R.id.bExtras);
-        bExtras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Extras_Producto_Activity.class);
-                startActivity(i);
-            }
-        });
-
-        Button bTamanos = findViewById(R.id.bTamaños);
-        bTamanos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Tamanos_Producto_Activity.class);
-                startActivity(i);
-            }
-        });
     }
 
     @Override
