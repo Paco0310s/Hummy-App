@@ -1,6 +1,8 @@
 package com.vantuit.hummy.modelo;
 
-public class Establecimiento {
+import java.io.Serializable;
+
+public class Establecimiento implements Serializable {
 
     int imagen;
     String nombre;

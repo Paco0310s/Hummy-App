@@ -12,10 +12,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Producto;
+import com.vantuit.hummy.vista.administrador.Establecimiento_ListaProductos;
 import com.vantuit.hummy.vista.cliente.adapters.AdapterEstablecimientos;
 import com.vantuit.hummy.vista.cliente.adapters.AdapterProducto;
 
@@ -28,11 +35,14 @@ public class ListaProductosActivity extends AppCompatActivity {
     ImageButton refresar;
     AdapterProducto Adapter;
     RecyclerView recyclerView;
+    //Establecimiento establecimiento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_productos);
+
+        //establecimiento = (Establecimiento) getIntent().getSerializableExtra("establecimiento");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Lista Productos");
@@ -47,19 +57,31 @@ public class ListaProductosActivity extends AppCompatActivity {
 
     public void init() {
         productos = new ArrayList<>();
-        productos.add(new Producto(R.drawable.pizza, "Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        productos.add(new Producto(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20","4.9"));
-        adapter();
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Productos");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                productos.clear();
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Producto p = ds.getValue(Producto.class);
+                    productos.add(p);
+
+                }
+                adapter();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Toast.makeText(ListaProductosActivity.this, "Falló", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
     public void adapter()
     {
         Adapter = new AdapterProducto(productos, ListaProductosActivity.this,new AdapterProducto.OnItemClickListener() {

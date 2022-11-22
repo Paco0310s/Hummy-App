@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Categoria;
+import com.vantuit.hummy.modelo.Constantes;
 
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class AdapterCategorias extends RecyclerView.Adapter<AdapterCategorias.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onItemClick(item);
+                    Constantes.CATEGORIA = item.getCategoria();
                 }
             });
 

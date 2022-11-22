@@ -3,6 +3,7 @@ package com.vantuit.hummy.vista.cliente;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Establecimiento;
@@ -53,7 +57,7 @@ public class PrincipalFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_principal, container, false);
 
         //Toolbar toolbar = root.findViewById(R.id.toolbar);
-        //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        //((AppCompatActivity)getActivity()).setSupportActionB ar(toolbar);
 
         imagen = root.findViewById(R.id.image_slider);
         buscar = root.findViewById(R.id.pri_buscar);
@@ -61,12 +65,31 @@ public class PrincipalFragment extends Fragment {
         llDireccion = root.findViewById(R.id.llDireccion);
         tvDireccion = root.findViewById(R.id.tvDireccion);
 
-
-
         ArrayList<SlideModel> images = new ArrayList<>();
 
-        images.add(new SlideModel(R.drawable.promo, null));
-        images.add(new SlideModel(R.drawable.promo2, null));
+        images.add(new SlideModel(R.drawable.b1, null));
+        images.add(new SlideModel(R.drawable.b2, null));
+
+        //StorageReference pathReference = storageRef.child("images/stars.jpg");
+
+        /*
+        File localFile = File.createTempFile("images", "jpg");
+        pathReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                // Local temp file has been created
+
+                //Aqui ya obtuviste el archivo, asi que puedes chequear su tamaño con
+                un log
+
+                Log.e("Tamaño del archivo",""+datasnapshot.getByteCount(); //creo que era byte count pero con un get byte obtenias el tamaño del archivo
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        }); */
 
         imagen.startSliding(3000);
         imagen.setImageList(images, ScaleTypes.CENTER_CROP);
@@ -163,6 +186,7 @@ public class PrincipalFragment extends Fragment {
 
     public void establecimientoIndividual (Establecimiento e){
         Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        i.putExtra("establecimiento",e);
         startActivity(i);
     }
 

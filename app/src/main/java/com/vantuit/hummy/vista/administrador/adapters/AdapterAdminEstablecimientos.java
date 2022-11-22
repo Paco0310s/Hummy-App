@@ -56,6 +56,7 @@ public class AdapterAdminEstablecimientos extends RecyclerView.Adapter<AdapterAd
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nombre, descripcion, estado, calificacion;
         ImageView iconImage;
+        Establecimiento item;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -72,16 +73,20 @@ public class AdapterAdminEstablecimientos extends RecyclerView.Adapter<AdapterAd
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, Establecimiento_ListaProductos.class);
+                    i.putExtra("establecimiento",item);
                     context.startActivity(i);
                 }
             });
         }
 
         void bindData(final Establecimiento item){
+            this.item = item;
+
             nombre.setText(item.getNombre());
             descripcion.setText(item.getDescripcion());
             estado.setText(item.getEstado());
             calificacion.setText(item.getCalificacion());
+
             if(item.getFoto()==null || item.getFoto().isEmpty()) iconImage.setImageResource(R.drawable.logo);
             else {
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -105,7 +110,6 @@ public class AdapterAdminEstablecimientos extends RecyclerView.Adapter<AdapterAd
                     }
                 });
             }
-
         }
     }
 }
