@@ -95,6 +95,7 @@ public class EstablecimientosFragment extends Fragment {
 
         adapter();
     }
+
     public void adapter()
     {
         Adapter = new AdapterEstablecimientos(establecimientos, getActivity().getApplicationContext(),new AdapterEstablecimientos.OnItemClickListener() {
@@ -110,8 +111,9 @@ public class EstablecimientosFragment extends Fragment {
         recyclerView.setAdapter(Adapter);
     }
 
-    public void establecimientoIndividual (Establecimiento categoria){
+    public void establecimientoIndividual (Establecimiento e){
         Intent i = new Intent(getActivity().getApplicationContext(), EstablecimiestoIndividual.class);
+        i.putExtra("establecimiento",e);
         startActivity(i);
     }
 

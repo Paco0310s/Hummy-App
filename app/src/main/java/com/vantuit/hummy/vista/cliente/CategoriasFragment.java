@@ -37,14 +37,14 @@ public class CategoriasFragment extends Fragment {
 
     public void init() {
         categorias = new ArrayList<>();
-        categorias.add(new Categoria(R.drawable.bebidas));
-        categorias.add(new Categoria(R.drawable.antojitos));
-        categorias.add(new Categoria(R.drawable.comidarapida));
-        categorias.add(new Categoria(R.drawable.desayunos));
-        categorias.add(new Categoria(R.drawable.ensaladas));
-        categorias.add(new Categoria(R.drawable.helados));
-        categorias.add(new Categoria(R.drawable.mariscos));
-        categorias.add(new Categoria(R.drawable.reposteria));
+        categorias.add(new Categoria("Bebidas", R.drawable.bebidas));
+        categorias.add(new Categoria("Antojitos", R.drawable.antojitos));
+        categorias.add(new Categoria("Comida Rapida", R.drawable.comidarapida));
+        categorias.add(new Categoria("Desayunos", R.drawable.desayunos));
+        categorias.add(new Categoria("Ensaladas", R.drawable.ensaladas));
+        categorias.add(new Categoria("Helados", R.drawable.helados));
+        categorias.add(new Categoria("Mariscos", R.drawable.mariscos));
+        categorias.add(new Categoria("Reposteria", R.drawable.reposteria));
         adapter();
 
     }

@@ -11,8 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -28,31 +31,67 @@ import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.databinding.ActivityMainBinding;
 import com.vantuit.hummy.modelo.Carrito;
 import com.vantuit.hummy.modelo.Comunicacion;
+import com.vantuit.hummy.modelo.Establecimiento;
+import com.vantuit.hummy.modelo.Producto;
 import com.vantuit.hummy.vista.RealidadVirtual.RA;
 
 public class ProductoInduvidual extends AppCompatActivity  {
 
     private Menu menu;
     CollapsingToolbarLayout collapsingToolbar;
-    int numero;
+    int numero = 1;
     Carrito cantidad = new Carrito();
     MainActivity aumnetar = new MainActivity();
+    Producto producto;
+    ImageView ivImagen;
+    TextView tvPrecio, tvCal, tvDescripcion;
+    ImageButton bMenos, bMas;
+    EditText etNumero;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto_induvidual);
+
+        producto = (Producto) getIntent().getSerializableExtra("producto");
+
         final Toolbar mToolbar = findViewById(R.id.toolbar_producto);
+        mToolbar.setTitle(producto.getNombre());
         setSupportActionBar(mToolbar);
 
         FrameLayout includedLayout = findViewById(R.id.contenido);
 
         ImageButton ordenar = includedLayout.findViewById(R.id.ver_opiniones);
         ImageButton realidadvirtual = includedLayout.findViewById(R.id.ver_RA);
+        ivImagen = findViewById(R.id.ivImagen);
+        if(!producto.getImagen().isEmpty()) Picasso.get().load(producto.getImagen()).into(ivImagen);
+
+        tvPrecio = includedLayout.findViewById(R.id.tvPrecio);
+        tvCal = includedLayout.findViewById(R.id.cal_producto);
+        tvDescripcion = includedLayout.findViewById(R.id.tvDescripción);
+        etNumero = includedLayout.findViewById(R.id.etNumero);
+        bMas = includedLayout.findViewById(R.id.bMas);
+        bMenos = includedLayout.findViewById(R.id.bMenos);
+
+        tvPrecio.setText("$" + producto.getPrecio());
+        tvCal.setText(producto.getCalificacion());
+        tvDescripcion.setText(producto.getDescripcion());
+
+        bMas.setOnClickListener(v -> {
+            if(numero<99) numero++;
+            etNumero.setText(String.valueOf(numero));
+        });
+
+        bMenos.setOnClickListener(v -> {
+            if(numero>1) numero--;
+            etNumero.setText(String.valueOf(numero));
+        });
 
         ordenar.setOnClickListener(view -> {
             Intent i = new Intent(ProductoInduvidual.this, ListaOpiniones.class);
