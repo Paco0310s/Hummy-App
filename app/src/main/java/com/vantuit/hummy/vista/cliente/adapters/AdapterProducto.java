@@ -8,8 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Producto;
@@ -66,9 +73,9 @@ public class AdapterProducto extends RecyclerView.Adapter<AdapterProducto.ViewHo
 
         void bindData(final Producto item){
             nombre.setText(item.getNombre());
-            vendedor.setText(item.getVendedor());
+            vendedor.setText(item.getDescripcion());
             calificacion.setText(item.getCalificacion());
-            iconImage.setImageResource(item.getImagen());
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -76,6 +83,30 @@ public class AdapterProducto extends RecyclerView.Adapter<AdapterProducto.ViewHo
                 }
             });
 
+            if(item.getImagen()==null || item.getImagen().isEmpty()) iconImage.setImageResource(R.drawable.logo);
+            else {
+                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+                DatabaseReference databaseReference = firebaseDatabase.getReference();
+
+                DatabaseReference getImage = databaseReference.child("Productos/" + item.getVendedor() +
+                        "/" + item.getId() + "/imagen");
+
+                getImage.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String link = dataSnapshot.getValue(String.class);
+
+                        assert link != null;
+                        if(!link.isEmpty()) Picasso.get().load(link).into(iconImage);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
         }
     }
 

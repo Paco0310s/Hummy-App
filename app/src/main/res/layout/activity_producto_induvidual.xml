@@ -21,17 +21,18 @@
             app:expandedTitleTextAppearance="@style/Toolbar.TitleText"
             app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Pizza"
+            app:title=""
             android:tooltipText="@string/app_name"
             android:pointerIcon="zoom_out"
             app:layout_collapseMode="parallax"
             app:layout_collapseParallaxMultiplier="0.7">
 
             <ImageView
+                android:id="@+id/ivImagen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center"
-                android:background="@drawable/pizza">
+                android:background="@drawable/logo">
 
             </ImageView>
 

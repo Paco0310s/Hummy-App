@@ -47,6 +47,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".vista.administrador.EstablecimientoModificarProductoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".vista.administrador.Establecimiento_ListaProductos"
             android:exported="false">
             <meta-data
