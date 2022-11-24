@@ -1,6 +1,14 @@
 package com.vantuit.hummy.modelo;
 
+import java.util.ArrayList;
+
 public class Carrito {
+    ArrayList<Producto> productos;
+    float monto;
+
+    public Carrito() {
+        productos = new ArrayList<>();
+    }
 
     int imagen;
     String nombre;
@@ -56,8 +64,6 @@ public class Carrito {
         this.cantidad = cantidad;
     }
 
-    public Carrito() {
 
-    }
 
 }

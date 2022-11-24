@@ -75,7 +75,7 @@ public class AdapterProducto extends RecyclerView.Adapter<AdapterProducto.ViewHo
             nombre.setText(item.getNombre());
             vendedor.setText(item.getDescripcion());
             calificacion.setText(item.getCalificacion());
-
+            precio.setText(item.getPrecio());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
