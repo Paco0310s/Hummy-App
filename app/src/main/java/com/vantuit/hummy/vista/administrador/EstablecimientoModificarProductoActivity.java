@@ -63,7 +63,7 @@ public class EstablecimientoModificarProductoActivity extends AppCompatActivity 
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        Button bIngredientes = findViewById(R.id.bIngredientes);
+
         ivProducto = findViewById(R.id.imagelProducto);
         bCambiarFoto = findViewById(R.id.cambiarFoto_producto);
         bGuardar = findViewById(R.id.bGuardarProducto);
@@ -112,13 +112,7 @@ public class EstablecimientoModificarProductoActivity extends AppCompatActivity 
             popupMenu.show();
         });
 
-        bIngredientes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Ingredientes_Producto_Activity.class);
-                startActivity(i);
-            }
-        });
+
 
         bGuardar.setOnClickListener(v -> guardar());
     }

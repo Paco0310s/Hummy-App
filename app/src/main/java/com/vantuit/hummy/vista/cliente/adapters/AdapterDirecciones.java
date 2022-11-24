@@ -74,10 +74,10 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
         TextView codigopostal;
         TextView estado;
         TextView municipio;
-        TextView colonia;
         TextView numeroexterior;
         TextView numerodetelefono;
         TextView editar;
+        TextView calle;
         ImageButton btnEliminar;
 
 
@@ -89,12 +89,12 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             codigopostal = itemView.findViewById(R.id.codigoPostal);
             estado = itemView.findViewById(R.id.estado);
             municipio = itemView.findViewById(R.id.municipio);
-            colonia = itemView.findViewById(R.id.calle);
+            calle = itemView.findViewById(R.id.calle);
             numeroexterior = itemView.findViewById(R.id.numero);
             numerodetelefono = itemView.findViewById(R.id.telefono);
             editar = itemView.findViewById(R.id.bEditar);
 
-            colonia.setSelected(true);
+            calle.setSelected(true);
             nombre.setSelected(true);
             numerodetelefono.setSelected(true);
             numeroexterior.setSelected(true);
@@ -119,12 +119,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
                     context.startActivity(i);
                 }
             });
-
-
             //View Holder
-
-
-
         }
 
         void bindData(final Direccion item){
@@ -132,7 +127,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
             codigopostal.setText(String.valueOf(item.getCodigoPostal()));
             estado.setText(item.getEstado());
             municipio.setText(item.getMunicipio());
-            colonia.setText(item.getColonia());
+            calle.setText(item.getCalle());
             numeroexterior.setText(String.valueOf(item.getNumeroExterior()));
             numerodetelefono.setText(item.getNumeroTelefono());
 
