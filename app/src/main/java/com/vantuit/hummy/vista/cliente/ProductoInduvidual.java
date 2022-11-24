@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -31,6 +32,13 @@ import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.controlador.PedidoControlador;
@@ -44,6 +52,7 @@ import com.vantuit.hummy.modelo.Producto;
 import com.vantuit.hummy.vista.RealidadVirtual.RA;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -61,6 +70,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
     ImageButton bMenos, bMas;
     EditText etNumero;
     Button bOrdernar;
+    CheckBox[] cbIngre = new CheckBox[10];
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -71,6 +81,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         producto = (Producto) getIntent().getSerializableExtra("producto");
         establecimiento = (Establecimiento) getIntent().getSerializableExtra("establecimiento");
 
+        //Toast.makeText(ProductoInduvidual.this, producto.getVendedor(), Toast.LENGTH_SHORT).show();
         final Toolbar mToolbar = findViewById(R.id.toolbar_producto);
         mToolbar.setTitle(producto.getNombre());
         setSupportActionBar(mToolbar);
@@ -89,6 +100,14 @@ public class ProductoInduvidual extends AppCompatActivity  {
         bMas = includedLayout.findViewById(R.id.bMas);
         bMenos = includedLayout.findViewById(R.id.bMenos);
         bOrdernar = includedLayout.findViewById(R.id.ordenar);
+        //Se crea el vector para los id´s
+        int ckbDigits[]={R.id.cbIngrediente1,R.id.cbIngrediente2,R.id.cbIngrediente3,R.id.cbIngrediente4,R.id.cbIngrediente5,
+                R.id.cbIngrediente6,R.id.cbIngrediente7,R.id.cbIngrediente8,R.id.cbIngrediente9,R.id.cbIngrediente10};
+        //Enlaza el arreglo de checkbox con cada uno de los del xml
+        for (int k =0; k <= 9; k++){
+            cbIngre[k] = includedLayout.findViewById(ckbDigits[k]);
+        }
+        muestraIngredientes();
 
         tvPrecio.setText("$" + producto.getPrecio());
         tvCal.setText(producto.getCalificacion());
@@ -105,6 +124,9 @@ public class ProductoInduvidual extends AppCompatActivity  {
         });
 
         bOrdernar.setOnClickListener(v -> {
+            for (int k =0; k <= 9; k++){
+                cbIngre[k].setVisibility(View.VISIBLE);
+            }
             ordernar();
         });
 
@@ -175,6 +197,32 @@ public class ProductoInduvidual extends AppCompatActivity  {
         } else {
             PedidoControlador.insertar(this, p);
         }
+    }
+    public void muestraIngredientes()
+    {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Productos/"+producto.getVendedor()+"/"+producto.getId()+"/ingredientes");
+        //fToast.makeText(ProductoInduvidual.this,"Productos/"+producto.getVendedor()+"/"+producto.getId() , Toast.LENGTH_SHORT).show();
+        myRef.addValueEventListener(new ValueEventListener() {
+            ArrayList <String> arrayList = new ArrayList<>();
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
+                    arrayList.add(ds.getValue().toString());
+                }
+                for (int x = 0; x <= (arrayList.size()-1); x++)
+                {
+                    cbIngre[x].setVisibility(View.VISIBLE);
+                    cbIngre[x].setText(arrayList.get(x));
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+        });
     }
 
     @Override
