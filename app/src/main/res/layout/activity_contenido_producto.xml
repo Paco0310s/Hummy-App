@@ -8,8 +8,6 @@
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -207,6 +205,68 @@
                                 android:textSize="18sp"
                                 android:textStyle="bold">
                             </TextView>
+
+                            <CheckBox
+                                android:id="@+id/cbIngrediente1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+                            <CheckBox
+                                android:id="@+id/cbIngrediente10"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:text="CheckBox" />
+
 
                         </LinearLayout>
 
