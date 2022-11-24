@@ -211,6 +211,7 @@ public class PrincipalFragment extends Fragment {
                         usuario.setID(ds.child("id").getValue().toString());
                         usuario.setTELEFONO(ds.child("telefono").getValue().toString());
                         usuario.setTIPOUSUARIO(ds.child("tipoUsuario").getValue().toString());
+                        usuario.setNOMBRE(ds.child("nombre").getValue().toString());
                         Constantes.USUARIO = usuario;
                         if(direccion.equals("")) {
                             Intent i = new Intent(getActivity().getApplicationContext(), NuevaDireccionActivity.class);

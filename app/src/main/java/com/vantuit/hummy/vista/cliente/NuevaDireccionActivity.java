@@ -77,7 +77,8 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         spColonia = findViewById(R.id.spColonia);
         anadir = findViewById(R.id.btnAnadirDireccion);
 
-        etNumeroTelefono.setText(Constantes.USUARIO.getTELEFONO());
+        //
+        // etNumeroTelefono.setText(Constantes.USUARIO.getTELEFONO());
 
         if(valida())
         {
@@ -85,8 +86,6 @@ public class NuevaDireccionActivity extends AppCompatActivity {
                 guardaDireccion();
             });
         }
-
-
         if(direccion != null) completaDireccion(direccion);
 
         etCodigoPostal.addTextChangedListener(new TextWatcher() {

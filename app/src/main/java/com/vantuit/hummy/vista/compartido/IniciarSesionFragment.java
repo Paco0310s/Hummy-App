@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -47,6 +48,7 @@ public class IniciarSesionFragment extends Fragment {
     private GoogleSignInClient gsc;
     private EditText etCorreo, etPassword;
     public TextView tvRegistrarse;
+    public ProgressBar progressBar;
 
     // Constantes para iniciar sesión con Google
     private static final String TAG_GOOGLE = "GoogleActivity";
@@ -61,6 +63,7 @@ public class IniciarSesionFragment extends Fragment {
         etPassword = root.findViewById(R.id.etPassword);
         google_img = root.findViewById(R.id.iniciarGoogle);
         tvRegistrarse = root.findViewById(R.id.tvInscribirse);
+        progressBar = root.findViewById(R.id.progressBar);
 
         LoginActivity registrarse = new LoginActivity();
 
@@ -85,6 +88,7 @@ public class IniciarSesionFragment extends Fragment {
 
         // On Click del método del boton inicia Sesion, el cual inicia sesion con correo y contraseña
         iniciarSesion.setOnClickListener(view -> {
+            progressBar.setVisibility(View.VISIBLE);
             // Obtiene el correo y contraseña de los Edit Text
             String email = etCorreo.getText().toString();
             String password = etPassword.getText().toString();
@@ -176,6 +180,7 @@ public class IniciarSesionFragment extends Fragment {
     }
 
     public void iniciarSesion(FirebaseUser user){
+        progressBar.setVisibility(View.VISIBLE);
         String name;
         if(user.getDisplayName() == null) name = user.getEmail();
         else name = user.getDisplayName();

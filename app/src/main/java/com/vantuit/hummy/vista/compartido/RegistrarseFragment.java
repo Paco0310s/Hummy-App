@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class RegistrarseFragment extends Fragment {
     public EditText etNombre, etCorreo, etTelefono,etContra,etCContra;
     public CheckBox cbTerminos;
     public Button bInscribirse;
+    public ProgressBar progressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,9 +63,11 @@ public class RegistrarseFragment extends Fragment {
         etCContra =  root.findViewById(R.id.etConfirmarContra);
         tvIniciarSesion = root.findViewById(R.id.tvIniciaSesion);
         cbTerminos =  root.findViewById(R.id.cbTerminos);
+        progressBar= root.findViewById(R.id.progressBar);
         bInscribirse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (etNombre.length() == 0) {
                     etNombre.setError("Ingrese su Nombre");
                     return;
@@ -98,7 +102,7 @@ public class RegistrarseFragment extends Fragment {
                 }
 
                 /*----------------Existe Usuario------------------*/
-
+                progressBar.setVisibility(View.VISIBLE);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("Clientes");
                 myRef.addValueEventListener(new ValueEventListener() {

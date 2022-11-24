@@ -62,10 +62,15 @@
                                 android:layout_marginBottom="2dp"
                                 android:fontFamily="@font/cooperhewitt_heavy"
                                 android:text="Nombre"
-                                android:textSize="15sp"
-                                android:textStyle="bold">
+                                android:textSize="15sp">
 
                             </TextView>
+
+                            <View
+                                android:id="@+id/divider"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="?android:attr/listDivider" />
 
                             <TextView
                                 android:id="@+id/pro_vendedor"
@@ -75,8 +80,7 @@
                                 android:layout_marginBottom="2dp"
                                 android:fontFamily="@font/cooperhewitt_heavy"
                                 android:text="Vendedor"
-                                android:textSize="15sp"
-                                android:textStyle="bold">
+                                android:textSize="14sp">
 
                             </TextView>
 
@@ -103,6 +107,8 @@
                                     android:layout_marginBottom="2dp"
                                     android:fontFamily="@font/cooperhewitt_heavy"
                                     android:text="$"
+                                    android:textColor="#04A30A"
+                                    android:textColorLink="#4CAF50"
                                     android:textSize="15sp"
                                     android:textStyle="bold">
 
@@ -114,10 +120,11 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/cooperhewitt_heavy"
                                     android:text="20"
+                                    android:textColor="#04A30A"
                                     android:textSize="15sp"
                                     android:textStyle="bold">
 
-                                    </TextView>
+                                </TextView>
 
                             </LinearLayout>
 

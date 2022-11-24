@@ -33,6 +33,7 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.vista.compartido.RolActivity;
 
 import java.time.LocalDateTime;
@@ -87,7 +88,10 @@ public class UsuarioFragment extends Fragment {
             startActivity(i);
         });
 
-        usuario = "May";
+        String name = Constantes.USUARIO.getNOMBRE();
+        String[] lista = name.split(" ");
+
+        usuario = lista[0];
 
         Calendar calendario = Calendar.getInstance();
         int hora, minutos, segundos;
