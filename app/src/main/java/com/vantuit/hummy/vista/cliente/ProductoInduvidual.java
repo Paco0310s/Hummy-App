@@ -33,12 +33,19 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.controlador.PedidoControlador;
 import com.vantuit.hummy.databinding.ActivityMainBinding;
 import com.vantuit.hummy.modelo.Carrito;
 import com.vantuit.hummy.modelo.Comunicacion;
+import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Establecimiento;
+import com.vantuit.hummy.modelo.Pedido;
 import com.vantuit.hummy.modelo.Producto;
 import com.vantuit.hummy.vista.RealidadVirtual.RA;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ProductoInduvidual extends AppCompatActivity  {
 
@@ -48,10 +55,12 @@ public class ProductoInduvidual extends AppCompatActivity  {
     Carrito cantidad = new Carrito();
     MainActivity aumnetar = new MainActivity();
     Producto producto;
+    Establecimiento establecimiento;
     ImageView ivImagen;
     TextView tvPrecio, tvCal, tvDescripcion;
     ImageButton bMenos, bMas;
     EditText etNumero;
+    Button bOrdernar;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -60,6 +69,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         setContentView(R.layout.activity_producto_induvidual);
 
         producto = (Producto) getIntent().getSerializableExtra("producto");
+        establecimiento = (Establecimiento) getIntent().getSerializableExtra("establecimiento");
 
         final Toolbar mToolbar = findViewById(R.id.toolbar_producto);
         mToolbar.setTitle(producto.getNombre());
@@ -78,6 +88,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         etNumero = includedLayout.findViewById(R.id.etNumero);
         bMas = includedLayout.findViewById(R.id.bMas);
         bMenos = includedLayout.findViewById(R.id.bMenos);
+        bOrdernar = includedLayout.findViewById(R.id.ordenar);
 
         tvPrecio.setText("$" + producto.getPrecio());
         tvCal.setText(producto.getCalificacion());
@@ -93,10 +104,15 @@ public class ProductoInduvidual extends AppCompatActivity  {
             etNumero.setText(String.valueOf(numero));
         });
 
+        bOrdernar.setOnClickListener(v -> {
+            ordernar();
+        });
+
         ordenar.setOnClickListener(view -> {
             Intent i = new Intent(ProductoInduvidual.this, ListaOpiniones.class);
             startActivity(i);
         });
+
         realidadvirtual.setOnClickListener(view -> {
             Intent i = new Intent(ProductoInduvidual.this, RA.class);
             startActivity(i);
@@ -137,6 +153,28 @@ public class ProductoInduvidual extends AppCompatActivity  {
                 }
             }
         });
+    }
+
+    private void ordernar() {
+        String fecha = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss", Locale.getDefault()).format(new Date());
+
+        Pedido p = new Pedido();
+        p.setCliente(Constantes.USUARIO);
+        p.setEstablecimiento(establecimiento);
+        p.setProducto(producto);
+        p.setFecha(fecha);
+        p.setCantidad(numero);
+        p.setMonto(Float.parseFloat(producto.getPrecio()));
+        p.setConfirmado(false);
+        p.setFinalizado(false);
+        p.setEntregado(false);
+
+        if(p.getCliente().getDIRECCION() == null || p.getCliente().getDIRECCION().isEmpty()) {
+            Intent i = new Intent(ProductoInduvidual.this, DireccionesActivity.class);
+            startActivity(i);
+        } else {
+            PedidoControlador.insertar(this, p);
+        }
     }
 
     @Override
