@@ -182,6 +182,7 @@ public class EstablecimiestoIndividual extends AppCompatActivity {
 
     public void individualProducto (Producto p){
         Intent i = new Intent(EstablecimiestoIndividual.this, ProductoInduvidual.class);
+        i.putExtra("establecimiento", establecimiento);
         i.putExtra("producto", p);
         startActivity(i);
     }
