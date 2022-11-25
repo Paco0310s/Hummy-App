@@ -156,7 +156,7 @@ public class RegistrarseFragment extends Fragment {
     }
 
     public void creaUsuario() {
-        //Crear usuario en Firebase
+        //Crear usuario en Firebase con correo y contraseña
         String email = etCorreo.getText().toString().trim();
         String password = etContra.getText().toString().trim();
 

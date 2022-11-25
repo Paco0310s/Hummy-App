@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Usuario;
 import com.vantuit.hummy.vista.administrador.ListaEstablecimientosActivity;
+import com.vantuit.hummy.vista.administrador.ListaPedidos;
 import com.vantuit.hummy.vista.cliente.InicioActivity;
 import com.vantuit.hummy.vista.cliente.MainActivity;
 
@@ -44,6 +46,12 @@ public class RolActivity extends AppCompatActivity {
             Intent i = new Intent(this, ListaEstablecimientosActivity.class);
             startActivity(i);
         });
+
+        bEstablecimiento.setOnClickListener(v -> {
+            Intent i = new Intent(this, ListaPedidos.class);
+            startActivity(i);
+        });
+
     }
 
 }

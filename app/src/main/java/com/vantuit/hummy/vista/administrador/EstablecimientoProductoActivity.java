@@ -122,8 +122,8 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
                 }
             }
         });
-
-        b_guardar = findViewById(R.id.bGuardar_Ingredientes);
+        //Btn guardar ingredientes obsoleto
+        /*b_guardar = findViewById(R.id.bGuardar_Ingredientes);
         b_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +138,7 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
                 Toast.makeText(EstablecimientoProductoActivity.this, "Ingredientes agregados con éxito", Toast.LENGTH_SHORT).show();
                 finish();
             }
-        });
+        });*/
 
         bCambiarFoto.setOnClickListener(v -> {
             final PopupMenu popupMenu = new PopupMenu(EstablecimientoProductoActivity.this, bCambiarFoto);

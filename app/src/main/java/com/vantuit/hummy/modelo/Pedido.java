@@ -7,11 +7,27 @@ public class Pedido {
     private Usuario cliente;
     private Establecimiento establecimiento;
     private String fecha;
-    private boolean finalizado;
-    private boolean confirmado;
-    private boolean entregado;
+    private String estado;
+
+    public Pedido(float monto, int cantidad, Producto producto, Usuario cliente, Establecimiento establecimiento, String fecha, String estado) {
+        this.monto = monto;
+        this.cantidad = cantidad;
+        this.producto = producto;
+        this.cliente = cliente;
+        this.establecimiento = establecimiento;
+        this.fecha = fecha;
+        this.estado = estado;
+    }
 
     public Pedido() {
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public float getMonto() {
@@ -62,27 +78,4 @@ public class Pedido {
         this.fecha = fecha;
     }
 
-    public boolean isFinalizado() {
-        return finalizado;
-    }
-
-    public void setFinalizado(boolean finalizado) {
-        this.finalizado = finalizado;
-    }
-
-    public boolean isConfirmado() {
-        return confirmado;
-    }
-
-    public void setConfirmado(boolean confirmado) {
-        this.confirmado = confirmado;
-    }
-
-    public boolean isEntregado() {
-        return entregado;
-    }
-
-    public void setEntregado(boolean entregado) {
-        this.entregado = entregado;
-    }
 }
