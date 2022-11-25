@@ -62,8 +62,14 @@ public class EstablecimientoModificarProductoActivity extends AppCompatActivity 
         setContentView(R.layout.activity_establecimiento_producto);
 
         producto = (Producto) getIntent().getSerializableExtra("producto");
-        lista_ingredientes = producto.getIngredientes();
-        x = lista_ingredientes.size() - 1;
+
+        if(producto.getIngredientes() == null) {
+            lista_ingredientes = new ArrayList<>();
+            x = 0;
+        } else {
+            lista_ingredientes = producto.getIngredientes();
+            x = lista_ingredientes.size() - 1;
+        }
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Modificar " + producto.getNombre());
@@ -196,7 +202,7 @@ public class EstablecimientoModificarProductoActivity extends AppCompatActivity 
         b_ingrediente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //if (ing_2.getVisibility() == View.GONE) x = 0;
+                if (ing_2.getVisibility() == View.GONE) x = 0;
                 if (ing_10.getVisibility() == View.GONE){
                     ingredientes[x].setVisibility(View.VISIBLE);
                     x++;
