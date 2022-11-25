@@ -49,7 +49,7 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
     Spinner sCategorias, sDisponible;
     EditText etPrecio;
     String linkImagen = "", id;
-
+    ArrayList<String> lista_ingredientes;
 
     Button b_guardar;
     ImageButton b_ingrediente;
@@ -74,6 +74,7 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         id = UUID.randomUUID().toString();
+        lista_ingredientes = new ArrayList<>();
 
         ivProducto = findViewById(R.id.imagelProducto);
         bCambiarFoto = findViewById(R.id.cambiarFoto_producto);
@@ -107,6 +108,7 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
         ing_8 = findViewById(R.id.ing_8);
         ing_9 = findViewById(R.id.ing_9);
         ing_10 = findViewById(R.id.ing_10);
+
         TextInputLayout[] ingredientes = {ing_2, ing_3, ing_4, ing_5, ing_6, ing_7, ing_8, ing_9, ing_10};
 
         b_ingrediente = findViewById(R.id.bNuevo_Ingrediente);
@@ -122,23 +124,6 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
                 }
             }
         });
-        //Btn guardar ingredientes obsoleto
-        /*b_guardar = findViewById(R.id.bGuardar_Ingredientes);
-        b_guardar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ArrayList<String> listaIngredientes = new ArrayList<>();
-
-                for (TextInputEditText etIngrediente : etIngredientes) {
-                    String ingrediente = etIngrediente.getText().toString();
-                    if (!ingrediente.isEmpty()) listaIngredientes.add(ingrediente);
-                }
-
-                Constantes.INGREDIENTES = listaIngredientes;
-                Toast.makeText(EstablecimientoProductoActivity.this, "Ingredientes agregados con éxito", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });*/
 
         bCambiarFoto.setOnClickListener(v -> {
             final PopupMenu popupMenu = new PopupMenu(EstablecimientoProductoActivity.this, bCambiarFoto);
@@ -167,10 +152,6 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
             });
             popupMenu.show();
         });
-
-
-
-
 
         bGuardar.setOnClickListener(v -> guardar());
     }
@@ -204,7 +185,11 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
     }
 
     private void guardar() {
-        ArrayList<String> ingredientes = Constantes.INGREDIENTES;
+
+        for (TextInputEditText etIngrediente : etIngredientes) {
+            String ingrediente = etIngrediente.getText().toString();
+            if (!ingrediente.isEmpty()) lista_ingredientes.add(ingrediente);
+        }
 
         String nombre = etNombre.getText().toString();
         String descripcion = etDescripcion.getText().toString();
@@ -234,7 +219,7 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
         p.setImagen(linkImagen);
         p.setVendedor(establecimiento.getId());
         p.setPrecio(precio);
-        p.setIngredientes(ingredientes);
+        p.setIngredientes(lista_ingredientes);
         p.setCalificacion("");
         p.setCategoria(categoria);
         p.setDisponible(disponible);
