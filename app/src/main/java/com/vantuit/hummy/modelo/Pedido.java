@@ -1,5 +1,7 @@
 package com.vantuit.hummy.modelo;
 
+import java.util.ArrayList;
+
 public class Pedido {
     private float monto;
     private int cantidad;
@@ -8,8 +10,9 @@ public class Pedido {
     private Establecimiento establecimiento;
     private String fecha;
     private String estado;
+    private ArrayList<String> Ingredientes = new ArrayList<>();
 
-    public Pedido(float monto, int cantidad, Producto producto, Usuario cliente, Establecimiento establecimiento, String fecha, String estado) {
+    public Pedido(float monto, int cantidad, Producto producto, Usuario cliente, Establecimiento establecimiento, String fecha, String estado, ArrayList<String> ingredientes) {
         this.monto = monto;
         this.cantidad = cantidad;
         this.producto = producto;
@@ -17,6 +20,15 @@ public class Pedido {
         this.establecimiento = establecimiento;
         this.fecha = fecha;
         this.estado = estado;
+        Ingredientes = ingredientes;
+    }
+
+    public ArrayList<String> getIngredientes() {
+        return Ingredientes;
+    }
+
+    public void setIngredientes(ArrayList<String> ingredientes) {
+        Ingredientes = ingredientes;
     }
 
     public Pedido() {
