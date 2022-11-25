@@ -193,17 +193,26 @@ public class IniciarSesionFragment extends Fragment {
 
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String id = user.getUid();
+                Boolean existeUsuario = false;
 
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     if(id.equals(ds.child("id").getValue().toString()))
                     {
+                        existeUsuario = true;
                         if(ds.child("tipoUsuario").getValue().toString().equals("Cliente"))
                         {
                             Intent i = new Intent(getActivity(), InicioActivity.class);
                             startActivity(i);
                         }
+                        if(ds.child("tipoUsuario").getValue().toString().equals("Admin"))
+                        {
+                            Intent i = new Intent(getActivity(), RolActivity.class);
+                            startActivity(i);
+                        }
+
                     }
                 }
+                if(!existeUsuario){Toast.makeText(getActivity(), "Error, Loguiese primero", Toast.LENGTH_SHORT).show();progressBar.setVisibility(View.GONE);}
             }
             @Override
             public void onCancelled(DatabaseError error) {

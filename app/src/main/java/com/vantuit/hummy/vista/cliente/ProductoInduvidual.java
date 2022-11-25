@@ -178,7 +178,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
     }
 
     private void ordernar() {
-        String fecha = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss", Locale.getDefault()).format(new Date());
+        String fecha = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss", Locale.getDefault()).format(new Date());
 
         Pedido p = new Pedido();
         p.setCliente(Constantes.USUARIO);
@@ -187,9 +187,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         p.setFecha(fecha);
         p.setCantidad(numero);
         p.setMonto(Float.parseFloat(producto.getPrecio()));
-        p.setConfirmado(false);
-        p.setFinalizado(false);
-        p.setEntregado(false);
+        p.setEstado("Pendiente");
 
         if(p.getCliente().getDIRECCION() == null || p.getCliente().getDIRECCION().isEmpty()) {
             Intent i = new Intent(ProductoInduvidual.this, DireccionesActivity.class);

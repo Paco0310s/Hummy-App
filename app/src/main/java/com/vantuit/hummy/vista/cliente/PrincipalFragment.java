@@ -125,24 +125,6 @@ public class PrincipalFragment extends Fragment {
 
         establecimientos = new ArrayList<>();
 
-        /*
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas Ahogadas el Pepe",
-                "Tortas ahogadas estilo sinaloa", "Abierto", "2.1"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Pizza Gerardos",
-                "Pizzería", "Abierto", "4.9"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Café la esquina",
-                "Sweets and Cofee", "Abierto", "4.0"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Delmich",
-                "Heladería", "Abierto", "3.7"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"El Padrino",
-                "Restaurant/Bar ", "Abierto", "4.5"));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5","",""));
-        establecimientos.add(new Establecimiento(R.drawable.logo,"Tortas",
-                "Local establecido", "Abierto", "4.5","",""));
-
-        */
-
         //Conexion con Firebase para insertar datos
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
