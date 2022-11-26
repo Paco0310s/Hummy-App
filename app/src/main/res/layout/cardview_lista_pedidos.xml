@@ -26,17 +26,31 @@
             android:layout_toRightOf="@+id/cardView"
             android:layout_weight="10"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/cooperhewitt_heavy"
+                android:text="Producto"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </TextView>
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.google.android.material.divider.MaterialDivider>
 
             <TextView
                 android:id="@+id/tvDireccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="2dp"
+                android:layout_margin="10dp"
                 android:fontFamily="@font/cooperhewitt_heavy"
                 android:text="Direccion"
-                android:textSize="20sp"
-                android:textStyle="bold">
+                android:textSize="15sp"
+                >
 
             </TextView>
 
@@ -44,26 +58,13 @@
                 android:id="@+id/tvCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="2dp"
+                android:layout_margin="10dp"
                 android:fontFamily="@font/cooperhewitt_heavy"
                 android:text="Cliente"
                 android:textSize="20sp"
                 android:textStyle="bold">
             </TextView>
-            <TextView
-                android:id="@+id/tvProducto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="@font/cooperhewitt_heavy"
-                android:text="Producto"
-                android:textSize="20sp"
-                android:textStyle="bold">
-            </TextView>
+
 
         </LinearLayout>
 

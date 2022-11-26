@@ -31,7 +31,7 @@ import java.util.List;
 
 public class ListaPedidos extends AppCompatActivity {
     View root;
-    List<Pedido> listaPedidos;
+    List <Pedido> listaPedidos;
     AdapterListaPedidos Adapter;
     RecyclerView recyclerView;
 
@@ -47,15 +47,38 @@ public class ListaPedidos extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-
         init();
     }
 
     public void init() {
-        listaPedidos = new ArrayList<>();
 
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("Pedidos");
+
+        // lee de la base de datos
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listaPedidos = new ArrayList<>();
+
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
+
+                    //Lee de la base de datos todos los atributos de Establecimiento
+                    Pedido pedido = ds.getValue(Pedido.class);
+                    //Lo añade al arreglo para luego pasarlo al Adapter
+                    listaPedidos.add(pedido);
+
+
+                }
+                adapter();
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Toast.makeText(ListaPedidos.this, "Error al leer de la base de datos", Toast.LENGTH_SHORT).show();
+            }
+        });
         adapter();
 
     }
