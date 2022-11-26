@@ -51,6 +51,7 @@ import com.vantuit.hummy.modelo.Pedido;
 import com.vantuit.hummy.modelo.Producto;
 import com.vantuit.hummy.vista.RealidadVirtual.RA;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -124,9 +125,6 @@ public class ProductoInduvidual extends AppCompatActivity  {
         });
 
         bOrdernar.setOnClickListener(v -> {
-            for (int k =0; k <= 9; k++){
-                cbIngre[k].setVisibility(View.VISIBLE);
-            }
             ordernar();
         });
 
@@ -188,6 +186,8 @@ public class ProductoInduvidual extends AppCompatActivity  {
         p.setCantidad(numero);
         p.setMonto(Float.parseFloat(producto.getPrecio()));
         p.setEstado("Pendiente");
+        p.setIngredientes(ingredientesSeleccionados());
+
 
         if(p.getCliente().getDIRECCION() == null || p.getCliente().getDIRECCION().isEmpty()) {
             Intent i = new Intent(ProductoInduvidual.this, DireccionesActivity.class);
@@ -195,6 +195,14 @@ public class ProductoInduvidual extends AppCompatActivity  {
         } else {
             PedidoControlador.insertar(this, p);
         }
+    }
+    public ArrayList<String> ingredientesSeleccionados()
+    {
+        ArrayList<String> ingredientes = new ArrayList<>();
+        for (int x = 0; x< cbIngre.length; x++)
+            if(cbIngre[x].isChecked()) ingredientes.add(cbIngre[x].getText().toString());
+
+        return ingredientes;
     }
     public void muestraIngredientes()
     {

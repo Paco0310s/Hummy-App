@@ -175,6 +175,9 @@ public class EstablecimientoModificarProductoActivity extends AppCompatActivity 
     }
 
     private void setIngredientes() {
+
+
+
         etIngredientes[0] = findViewById(R.id.ingrediente1);
         etIngredientes[1] = findViewById(R.id.ingrediente2);
         etIngredientes[2] = findViewById(R.id.ingrediente3);
