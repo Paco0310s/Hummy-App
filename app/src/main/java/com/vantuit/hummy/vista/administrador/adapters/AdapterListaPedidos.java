@@ -74,25 +74,26 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Toast.makeText(itemView.getContext(), "Card View", Toast.LENGTH_SHORT).show();
                 }
             });
-            /*estado.setOnClickListener(new View.OnClickListener() {
+            estado.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    for (int x = 0; x < estados.length; x++)
+                    for (int x = 0; x < (estados.length); x++)
                     {
-                        if(estados[x].equals(estado))
+                        if(estados[x].equals(estado.getText()))
                         {
-                            estado.setText(estados[x+1]);
+                            if(x < (estados.length-1)) estado.setText(estados[x+1]);
+                            else estado.setText(estados[0]);
+                            x = estados.length;
                         }
-
                     }
+                    //colorEstado();
                     cambiaEstadoFB();
-                    colorEstado();
                 }
-            });*/
+            });
         }
         public void cambiaEstadoFB()
         {
@@ -109,13 +110,21 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
             cliente.setText(item.getCliente().getNOMBRE());
             producto.setText(item.getProducto().getNombre());
             estado.setText(item.getEstado());
-
+            colorEstado();
 
         }
         public void colorEstado()
         {
-            int [] color = {Color.RED,Color.rgb(255,128,0),Color.YELLOW,Color.GREEN};
 
+            int [] color = {Color.RED,Color.rgb(255,128,0),Color.rgb(182,170,91),Color.rgb(1,204,4)};
+            for (int x = 0; x < (estados.length); x++)
+            {
+                if(estados[x].equals(estado.getText()))
+                {
+                        estado.setTextColor(color[x]);
+                       x = estados.length;
+                }
+            }
         }
     }
 }

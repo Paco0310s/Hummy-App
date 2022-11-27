@@ -55,12 +55,12 @@ public class ListaPedidos extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Pedidos");
-
+        listaPedidos = new ArrayList<>();
         // lee de la base de datos
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                listaPedidos = new ArrayList<>();
+                listaPedidos.clear();
 
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
 
