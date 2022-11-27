@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,7 @@ public class DatosUsuario extends AppCompatActivity {
         assert actionBar != null;
         actionBar.setDisplayHomeAsUpEnabled(true);
         etUsuario = findViewById(R.id.etUsuario);
+        etNombre = findViewById(R.id.etNombre);
         etApellidos = findViewById(R.id.etApellido);
         etCorreo =findViewById(R.id.etCorreo);
         etCurp = findViewById(R.id.etCurp);
@@ -39,23 +41,32 @@ public class DatosUsuario extends AppCompatActivity {
         String nombreCompleto = Constantes.USUARIO.getNOMBRE();
         etUsuario.setText(nombreCompleto);
         String[] parts = nombreCompleto.split(" ");
-        String nombre ="", apellido="";
-        /*
+        String nombre = "", apellido="";
+
         if(parts.length == 2)
         {
             nombre = parts[0];
             apellido = parts[1];
+
+        }
+        if(parts.length == 3)
+        {
+            nombre = parts[0]+"";
+            apellido = parts[1]+parts[2];
         }
         etNombre.setText(nombre);
         etApellidos.setText(apellido);
         etCorreo.setText(Constantes.USUARIO.getCORREO());
-        etTelefono.setText(Constantes.USUARIO.getTELEFONO());*/
-        /*btnGuardar.setOnClickListener(new View.OnClickListener() {
+        etTelefono.setText(Constantes.USUARIO.getTELEFONO());
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(DatosUsuario.this, "Datos Guardados con éxito", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                finish();
             }
-        });*/
+        });
     }
 
     @Override

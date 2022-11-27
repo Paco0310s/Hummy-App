@@ -126,6 +126,8 @@ public class ProductoInduvidual extends AppCompatActivity  {
 
         bOrdernar.setOnClickListener(v -> {
             ordernar();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
         });
 
         ordenar.setOnClickListener(view -> {
@@ -217,7 +219,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     arrayList.add(ds.getValue().toString());
                 }
-                for (int x = 0; x <= (arrayList.size()-1); x++)
+                for (int x = 0; x < arrayList.size(); x++)
                 {
                     cbIngre[x].setVisibility(View.VISIBLE);
                     cbIngre[x].setText(arrayList.get(x));

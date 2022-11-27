@@ -24,10 +24,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Pedido;
 import com.vantuit.hummy.vista.administrador.adapters.AdapterAdminEstablecimientos;
 import com.vantuit.hummy.vista.administrador.adapters.AdapterListaPedidos;
+import com.vantuit.hummy.vista.cliente.adapters.AdapterNotificaciones;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +37,7 @@ import java.util.List;
 public class NotificacionesFragment extends Fragment {
     View root;
     List <Pedido> listaPedidos;
-    AdapterListaPedidos Adapter;
+    AdapterNotificaciones Adapter;
     RecyclerView recyclerView;
 
 
@@ -66,7 +68,8 @@ public class NotificacionesFragment extends Fragment {
                     //Lee de la base de datos todos los atributos de Establecimiento
                     Pedido pedido = ds.getValue(Pedido.class);
                     //Lo añade al arreglo para luego pasarlo al Adapter
-                    listaPedidos.add(pedido);
+                    if(pedido.getCliente().getID().equals(Constantes.USUARIO.getID()))listaPedidos.add(pedido);
+
 
 
                 }
@@ -83,7 +86,7 @@ public class NotificacionesFragment extends Fragment {
     }
     public void adapter()
     {
-        Adapter = new AdapterListaPedidos(listaPedidos, getContext());
+        Adapter = new AdapterNotificaciones(listaPedidos, getContext());
         recyclerView = root.findViewById(R.id.listaNotificaciones);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));

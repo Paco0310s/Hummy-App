@@ -37,7 +37,7 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
     private Context context;
 
     public AdapterNotificaciones(List<Pedido> itemList, Context context) {
-        this.inflater = LayoutInflater.from(context);
+        if(context != null)this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.mData = itemList;
     }
@@ -61,7 +61,7 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView direccion, cliente, producto, estado;
-        String[] estados = {"Pendiente","Cocinando","En camino","Recibido"};
+        String[] estados = {"Pendiente","Cocinando","En camino","Entregado"};
         Pedido item;
 
         ViewHolder(View itemView) {
@@ -74,40 +74,35 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(itemView.getContext(), "Card View", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(itemView.getContext(), "Tu "+cliente.getText(), Toast.LENGTH_SHORT).show();
                 }
             });
             estado.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    for (int x = 0; x < (estados.length); x++)
-                    {
-                        if(estados[x].equals(estado.getText()))
-                        {
-                            if(x < (estados.length-1)) estado.setText(estados[x+1]);
-                            else estado.setText(estados[0]);
-                            x = estados.length;
-                        }
-                    }
-                    //colorEstado();
-                    cambiaEstadoFB();
+                    if(estado.getText().equals("Pendiente"))  Toast.makeText(context.getApplicationContext(), "Pronto empezarán a preparar tu producto", Toast.LENGTH_SHORT).show();
+                    if(estado.getText().equals("Cocinando"))  Toast.makeText(context.getApplicationContext(), "Estamos Cocinando tu pedido con mucho amor", Toast.LENGTH_SHORT).show();
+                    if(estado.getText().equals("En camino"))  Toast.makeText(context.getApplicationContext(), "Prepárate tu pedido esta en camino", Toast.LENGTH_SHORT).show();
+                    if(estado.getText().equals("Entregado"))  Toast.makeText(context.getApplicationContext(), "Ya entregamos tu pedido, Disfrútalo", Toast.LENGTH_SHORT).show();
                 }
             });
-        }
-        public void cambiaEstadoFB()
-        {
-            FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("Pedidos");
-
-            myRef.child(item.getFecha()).child("estado").setValue(estado.getText());
-
         }
 
         void bindData(final Pedido item){
             this.item = item;
+
             direccion.setText(item.getCliente().getDIRECCION());
             cliente.setText(item.getCliente().getNOMBRE());
+            producto.setText(item.getProducto().getNombre());
+            estado.setText(item.getEstado());
+
+
+            direccion.setText(item.getCliente().getDIRECCION());
+           // cliente.setText("Ten listos $"+item.getProducto().getPrecio());
+            if(estado.getText().equals("Pendiente"))  direccion.setText("Pronto empezaremos a preparar tu producto");
+            if(estado.getText().equals("Cocinando"))  direccion.setText("Estamos cocinando tu pedido con mucho cariño");
+            if(estado.getText().equals("En camino"))  direccion.setText("Preparate, tu pedido está en camino");
+            if(estado.getText().equals("Entregado"))  direccion.setText("Entregamos tu pedido, Buen Provecho \uD83D\uDE0B ");
             producto.setText(item.getProducto().getNombre());
             estado.setText(item.getEstado());
             colorEstado();
@@ -115,7 +110,6 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
         }
         public void colorEstado()
         {
-
             int [] color = {Color.RED,Color.rgb(255,128,0),Color.rgb(182,170,91),Color.rgb(1,204,4)};
             for (int x = 0; x < (estados.length); x++)
             {

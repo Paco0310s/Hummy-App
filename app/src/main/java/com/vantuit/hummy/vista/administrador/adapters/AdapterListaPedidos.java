@@ -61,7 +61,7 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView direccion, cliente, producto, estado;
-        String[] estados = {"Pendiente","Cocinando","En camino","Recibido"};
+        String[] estados = {"Pendiente","Cocinando","En camino","Entregado"};
         Pedido item;
 
         ViewHolder(View itemView) {
@@ -111,18 +111,16 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
             producto.setText(item.getProducto().getNombre());
             estado.setText(item.getEstado());
             colorEstado();
-
         }
         public void colorEstado()
         {
-
             int [] color = {Color.RED,Color.rgb(255,128,0),Color.rgb(182,170,91),Color.rgb(1,204,4)};
             for (int x = 0; x < (estados.length); x++)
             {
                 if(estados[x].equals(estado.getText()))
                 {
                         estado.setTextColor(color[x]);
-                       x = estados.length;
+                        x = estados.length;
                 }
             }
         }

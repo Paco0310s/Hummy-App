@@ -53,6 +53,7 @@ public class DireccionesActivity extends AppCompatActivity {
         bAgregarDireccion.setOnClickListener(v -> {
             Intent i = new Intent(this, NuevaDireccionActivity.class);
             startActivity(i);
+            finish();
         });
         init();
 
