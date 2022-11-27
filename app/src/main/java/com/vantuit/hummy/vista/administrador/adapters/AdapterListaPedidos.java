@@ -3,11 +3,13 @@ package com.vantuit.hummy.vista.administrador.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,7 +25,9 @@ import com.vantuit.hummy.modelo.Establecimiento;
 import com.vantuit.hummy.modelo.Pedido;
 import com.vantuit.hummy.vista.administrador.EstablecimientoProductoActivity;
 import com.vantuit.hummy.vista.administrador.Establecimiento_ListaProductos;
+import com.vantuit.hummy.vista.administrador.ListaPedidos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedidos.ViewHolder> {
@@ -57,7 +61,7 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView direccion, cliente, producto, estado;
-
+        String[] estados = {"Pendiente","Cocinando","En camino","Entregado"};
         Pedido item;
 
         ViewHolder(View itemView) {
@@ -70,11 +74,34 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    /*Intent i = new Intent(context, Establecimiento_ListaProductos.class);
-                    i.putExtra("establecimiento",item);
-                    context.startActivity(i);*/
+                    Toast.makeText(itemView.getContext(), "Card View", Toast.LENGTH_SHORT).show();
                 }
             });
+            estado.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    for (int x = 0; x < (estados.length); x++)
+                    {
+                        if(estados[x].equals(estado.getText()))
+                        {
+                            if(x < (estados.length-1)) estado.setText(estados[x+1]);
+                            else estado.setText(estados[0]);
+                            x = estados.length;
+                        }
+                    }
+                    //colorEstado();
+                    cambiaEstadoFB();
+                }
+            });
+        }
+        public void cambiaEstadoFB()
+        {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("Pedidos");
+
+            myRef.child(item.getFecha()).child("estado").setValue(estado.getText());
+
         }
 
         void bindData(final Pedido item){
@@ -83,8 +110,19 @@ public class AdapterListaPedidos extends RecyclerView.Adapter<AdapterListaPedido
             cliente.setText(item.getCliente().getNOMBRE());
             producto.setText(item.getProducto().getNombre());
             estado.setText(item.getEstado());
-
-
+            colorEstado();
+        }
+        public void colorEstado()
+        {
+            int [] color = {Color.RED,Color.rgb(255,128,0),Color.rgb(182,170,91),Color.rgb(1,204,4)};
+            for (int x = 0; x < (estados.length); x++)
+            {
+                if(estados[x].equals(estado.getText()))
+                {
+                        estado.setTextColor(color[x]);
+                        x = estados.length;
+                }
+            }
         }
     }
 }

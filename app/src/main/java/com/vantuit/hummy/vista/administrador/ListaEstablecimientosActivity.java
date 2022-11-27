@@ -59,7 +59,7 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
 
     public void init() {
         establecimientos = new ArrayList<>();
-        
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Establecimientos");
 
@@ -83,7 +83,7 @@ public class ListaEstablecimientosActivity extends AppCompatActivity {
                 Toast.makeText(ListaEstablecimientosActivity.this, "Falló", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
         adapter();
 
     }
