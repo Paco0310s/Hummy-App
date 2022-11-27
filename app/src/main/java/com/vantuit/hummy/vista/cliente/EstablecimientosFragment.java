@@ -59,7 +59,7 @@ public class EstablecimientosFragment extends Fragment {
 
         }catch (NullPointerException e)
         {
-            Toast.makeText(getActivity(), "Chupo faro", Toast.LENGTH_SHORT).show();
+
         }
 
     }

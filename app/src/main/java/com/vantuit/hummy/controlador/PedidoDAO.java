@@ -22,14 +22,14 @@ public class PedidoDAO {
     }
 
     public void insertar(Pedido p) {
-        dr.child(p.getCliente().getID()).child(p.getFecha()).setValue(p);
+        dr.child(p.getFecha()).setValue(p);
     }
 
     public void modificar(Pedido p) {
-        dr.child(p.getCliente().getID()).child(p.getFecha()).setValue(p);
+        dr.child(p.getFecha()).setValue(p);
     }
 
     public void eliminar(Pedido p) {
-        dr.child(p.getCliente().getID()).child(p.getFecha()).removeValue();
+        dr.child(p.getFecha()).removeValue();
     }
 }

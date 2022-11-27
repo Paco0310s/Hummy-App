@@ -14,7 +14,7 @@
         android:title="Carrito"
         android:icon="@drawable/ic_carrito"/>
     <item
-        android:id="@+id/fragmentConfiguracion"
+        android:id="@+id/fragmentNotificaciones"
         android:title="Notificación"
         android:icon="@drawable/ic_notificaciones"/>
 </menu>
