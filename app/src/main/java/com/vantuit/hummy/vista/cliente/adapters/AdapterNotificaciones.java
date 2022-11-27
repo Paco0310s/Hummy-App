@@ -92,19 +92,21 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
             this.item = item;
 
             direccion.setText(item.getCliente().getDIRECCION());
-            cliente.setText(item.getCliente().getNOMBRE());
+
             producto.setText(item.getProducto().getNombre());
             estado.setText(item.getEstado());
+            producto.setTextColor(Color.rgb(144,67,209));
 
-
-            direccion.setText(item.getCliente().getDIRECCION());
            // cliente.setText("Ten listos $"+item.getProducto().getPrecio());
             if(estado.getText().equals("Pendiente"))  direccion.setText("Pronto empezaremos a preparar tu producto");
             if(estado.getText().equals("Cocinando"))  direccion.setText("Estamos cocinando tu pedido con mucho cariño");
             if(estado.getText().equals("En camino"))  direccion.setText("Preparate, tu pedido está en camino");
             if(estado.getText().equals("Entregado"))  direccion.setText("Entregamos tu pedido, Buen Provecho \uD83D\uDE0B ");
-            producto.setText(item.getProducto().getNombre());
-            estado.setText(item.getEstado());
+            cliente.setText("Total: $"+item.getProducto().getPrecio());
+            cliente.setTextColor(Color.LTGRAY);
+
+
+
             colorEstado();
 
         }

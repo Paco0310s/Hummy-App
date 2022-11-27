@@ -21,7 +21,7 @@
         android:label="Carrito "
         tools:layout="@layout/fragment_carrito" />
     <fragment
-        android:id="@+id/fragmentConfiguracion"
+        android:id="@+id/fragmentNotificaciones"
         android:name="com.vantuit.hummy.vista.cliente.NotificacionesFragment"
         android:label="Notificaciones"
         tools:layout="@layout/fragment_notificaciones" />

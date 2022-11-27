@@ -69,9 +69,6 @@ public class NotificacionesFragment extends Fragment {
                     Pedido pedido = ds.getValue(Pedido.class);
                     //Lo añade al arreglo para luego pasarlo al Adapter
                     if(pedido.getCliente().getID().equals(Constantes.USUARIO.getID()))listaPedidos.add(pedido);
-
-
-
                 }
                 adapter();
             }
