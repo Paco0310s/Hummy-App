@@ -7,8 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Carrito;
 import com.vantuit.hummy.modelo.Comunicacion;
@@ -67,7 +74,8 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
             nombre.setText(item.getNombre());
             precio.setText(item.getPrecio());
             descripcion.setText(item.getVendedor());
-            iconImage.setImageResource(item.getImagen());
+            Picasso.get().load(item.getImagen()).into(iconImage);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
