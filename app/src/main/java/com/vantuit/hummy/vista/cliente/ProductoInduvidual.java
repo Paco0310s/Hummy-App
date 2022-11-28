@@ -194,7 +194,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         p.setProducto(producto);
         p.setFecha(fecha);
         p.setCantidad(numero);
-        p.setMonto(Float.parseFloat(producto.getPrecio()));
+        p.setMonto(Float.parseFloat(producto.getPrecio())*numero);
         p.setEstado("Pendiente");
         p.setIngredientes(ingredientesSeleccionados());
 

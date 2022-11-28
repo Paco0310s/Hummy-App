@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragmentUsuario"
     tools:context=".vista.cliente.UsuarioFragment">
 
     <androidx.cardview.widget.CardView
@@ -56,8 +57,8 @@
                                 android:id="@+id/imageView"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/may" />
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/usuario_icono" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -76,14 +77,15 @@
                         android:textSize="21sp" />
 
                     <Button
+                        android:id="@+id/btnPedidos"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:text="Mis pedidos"
-                        android:layout_marginTop="3sp"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="3sp"
                         android:layout_marginEnd="10dp"
-                        android:textAlignment="textStart"
-                        android:drawableEnd="@drawable/ic_derecha_blanco">
+                        android:drawableEnd="@drawable/ic_derecha_blanco"
+                        android:text="Mis pedidos"
+                        android:textAlignment="textStart">
 
                     </Button>
 
@@ -107,6 +109,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:textAlignment="textStart"
+                        android:visibility="gone"
                         android:drawableEnd="@drawable/ic_derecha_blanco">
 
                     </Button>
@@ -202,6 +205,7 @@
                     </Button>
 
                     <Button
+                        android:id="@+id/btnCerrarSesion"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:text="Cerrar Sesión"

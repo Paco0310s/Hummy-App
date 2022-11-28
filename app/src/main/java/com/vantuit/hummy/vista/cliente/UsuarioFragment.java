@@ -17,6 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
@@ -30,10 +35,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RemoteViews;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
+import com.vantuit.hummy.vista.compartido.LoginActivity;
 import com.vantuit.hummy.vista.compartido.RolActivity;
 
 import java.time.LocalDateTime;
@@ -45,7 +54,7 @@ public class UsuarioFragment extends Fragment {
     View root;
     TextView nombre;
     String usuario;
-    Button direcciones, datos, contactanos, cambiar_contraseña, ser_vendedor, aviso_privacidad, cambiar_rol;
+    Button direcciones, datos, contactanos, cambiar_contraseña, ser_vendedor, aviso_privacidad, cambiar_rol, btnPedidos, btnCerrarSesion;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,6 +62,31 @@ public class UsuarioFragment extends Fragment {
 
         nombre = root.findViewById(R.id.ue_nombre_usuario);
         direcciones = root.findViewById(R.id.us_direcciones);
+        btnPedidos = root.findViewById(R.id.btnPedidos);
+        btnPedidos.setOnClickListener(view -> {
+            // Crear fragmento de tu clase
+            Fragment fragment = new NotificacionesFragment();
+            // Obtener el administrador de fragmentos a través de la actividad
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            // Definir una transacción
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            // Remplazar el contenido principal por el fragmento
+            fragmentTransaction.replace(R.id.nav_fragment, fragment);
+            fragmentTransaction.addToBackStack(null);
+            // Cambiar
+            fragmentTransaction.commit();
+        });
+        btnCerrarSesion = root.findViewById(R.id.btnCerrarSesion);
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
         direcciones.setOnClickListener(view ->{
             Intent i = new Intent(getActivity().getApplicationContext(), DireccionesActivity.class);
             startActivity(i);
