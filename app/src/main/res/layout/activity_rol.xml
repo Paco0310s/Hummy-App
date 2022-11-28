@@ -35,19 +35,19 @@
             android:text="@string/cliente" />
 
         <Button
-            android:id="@+id/bAdministrador"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/colorPrincipal"
-            android:text="@string/administrador" />
-
-        <Button
             android:id="@+id/bEstablecimiento"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="20dp"
             android:backgroundTint="@color/colorPrincipal"
             android:text="@string/establecimiento" />
+
+        <Button
+            android:id="@+id/bAdministrador"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/colorPrincipal"
+            android:text="@string/administrador" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
