@@ -188,7 +188,8 @@ public class EstablecimientoProductoActivity extends AppCompatActivity {
 
         for (TextInputEditText etIngrediente : etIngredientes) {
             String ingrediente = etIngrediente.getText().toString();
-            if (!ingrediente.isEmpty()) lista_ingredientes.add(ingrediente);
+            if (!ingrediente.isEmpty() && lista_ingredientes.size() <= 10) lista_ingredientes.add(ingrediente);
+            else Toast.makeText(this, "Solo 10 ingredientes", Toast.LENGTH_SHORT).show();
         }
 
         String nombre = etNombre.getText().toString();

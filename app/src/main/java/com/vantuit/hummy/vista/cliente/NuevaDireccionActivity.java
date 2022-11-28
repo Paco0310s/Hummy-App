@@ -44,7 +44,7 @@ public class NuevaDireccionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nueva_direccion);
-        completaCodigoPostal("47862");
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Nueva Dirección");
@@ -78,15 +78,17 @@ public class NuevaDireccionActivity extends AppCompatActivity {
         anadir = findViewById(R.id.btnAnadirDireccion);
 
         //
-        // etNumeroTelefono.setText(Constantes.USUARIO.getTELEFONO());
+         etNumeroTelefono.setText(Constantes.USUARIO.getTELEFONO());
+         etNombreEncargado.setText(Constantes.USUARIO.getNOMBRE());
 
-        if(valida())
-        {
+
+
             anadir.setOnClickListener(view -> {
-                guardaDireccion();
+                if(valida()) guardaDireccion();
             });
-        }
+
         if(direccion != null) completaDireccion(direccion);
+
 
         etCodigoPostal.addTextChangedListener(new TextWatcher() {
             @Override
@@ -233,8 +235,21 @@ public class NuevaDireccionActivity extends AppCompatActivity {
     }
     public boolean valida()
     {
+        boolean validar = true;
         String errorMessage = "Llene Todos los campos";
-        if(etNombreEncargado.length()==0){ etNombreEncargado.setError(errorMessage); return false;}
-        return true;
+        if(etNombreEncargado.length()==0){ etNombreEncargado.setError(errorMessage); validar = false;}
+        if(etCodigoPostal.length()==0){ etCodigoPostal.setError(errorMessage); validar = false;}
+        if(etEstado.length()==0){ etEstado.setError(errorMessage); validar = false;}
+        if(etMunicipio.length()==0){ etMunicipio.setError(errorMessage); validar = false;}
+        if(spColonia.getSelectedItemPosition()==-1 || spColonia.getSelectedItemPosition()==0){Toast.makeText(this, "Seleccione Su colonia", Toast.LENGTH_SHORT).show(); validar = false;}
+        if(etCalle.length()==0){ etCalle.setError(errorMessage); validar = false;}
+        if(etNumeroExterior.length()==0){ etNumeroExterior.setError(errorMessage); validar = false;}
+        if(etEntreCalles1.length()==0){ etEntreCalles1.setError(errorMessage); validar = false;}
+        if(etEntreCalles2.length()==0){ etEntreCalles2.setError(errorMessage); validar = false;}
+        if(!rbEdificio.isChecked() && !rbVivienda.isChecked() && !rbLugarTrabajo.isChecked()){ rbVivienda.setError(errorMessage); validar = false;}
+        if(etNumeroTelefono.length()==0){ etNumeroTelefono.setError(errorMessage); validar = false;}
+        if(etRefDom.length()==0){ etRefDom.setError(errorMessage); validar = false;}
+
+        return validar;
     }
 }

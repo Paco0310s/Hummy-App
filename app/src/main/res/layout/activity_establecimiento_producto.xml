@@ -44,7 +44,7 @@
                 android:layout_marginTop="15dp"
                 android:cropToPadding="false"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/pizzaespecialjulio" />
+                app:srcCompat="@drawable/agregar_imagen" />
 
             <Button
                 android:id="@+id/cambiarFoto_producto"
@@ -53,6 +53,7 @@
                 android:layout_marginLeft="150dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="150dp"
+                android:background="@drawable/tab_boton_completo"
                 android:text="Cambiar imagen"
                 android:textSize="12sp" />
 
@@ -369,21 +370,23 @@
 
             <ImageButton
                 android:id="@+id/bNuevo_Ingrediente"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_gravity="right"
+                android:scaleType="centerCrop"
                 android:layout_marginRight="40dp"
-                android:backgroundTint="@color/colorPrincipal"
-                app:srcCompat="@android:drawable/ic_input_add" />
+                android:backgroundTint="#008F0480"
+                app:srcCompat="@drawable/ic_mas" />
 
 
             <Button
                 android:id="@+id/bGuardarProducto"
                 android:layout_width="356dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/colorPrincipal"
+                android:background="@drawable/tab_boton_completo"
                 android:text="Guardar" />
 
         </LinearLayout>

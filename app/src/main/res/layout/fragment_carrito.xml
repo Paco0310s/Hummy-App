@@ -129,7 +129,7 @@
                         android:layout_marginStart="7dp"
                         android:layout_marginTop="18dp"
                         android:layout_weight="1"
-                        android:text="$570"
+                        android:text="$206"
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:textAlignment="viewStart"
                         android:textSize="17sp" />

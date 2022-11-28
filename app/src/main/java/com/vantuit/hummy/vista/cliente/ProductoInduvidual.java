@@ -41,6 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 import com.vantuit.hummy.R;
+import com.vantuit.hummy.controlador.CarritoControlador;
 import com.vantuit.hummy.controlador.PedidoControlador;
 import com.vantuit.hummy.databinding.ActivityMainBinding;
 import com.vantuit.hummy.modelo.Carrito;
@@ -72,6 +73,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
     EditText etNumero;
     Button bOrdernar;
     CheckBox[] cbIngre = new CheckBox[10];
+    FloatingActionButton fab;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -101,6 +103,12 @@ public class ProductoInduvidual extends AppCompatActivity  {
         bMas = includedLayout.findViewById(R.id.bMas);
         bMenos = includedLayout.findViewById(R.id.bMenos);
         bOrdernar = includedLayout.findViewById(R.id.ordenar);
+        fab = findViewById(R.id.fab);
+
+        fab.setOnClickListener(v -> {
+            //CarritoControlador.insertar();
+        });
+
         //Se crea el vector para los id´s
         int ckbDigits[]={R.id.cbIngrediente1,R.id.cbIngrediente2,R.id.cbIngrediente3,R.id.cbIngrediente4,R.id.cbIngrediente5,
                 R.id.cbIngrediente6,R.id.cbIngrediente7,R.id.cbIngrediente8,R.id.cbIngrediente9,R.id.cbIngrediente10};
@@ -126,6 +134,8 @@ public class ProductoInduvidual extends AppCompatActivity  {
 
         bOrdernar.setOnClickListener(v -> {
             ordernar();
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
         });
 
         ordenar.setOnClickListener(view -> {
@@ -184,7 +194,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
         p.setProducto(producto);
         p.setFecha(fecha);
         p.setCantidad(numero);
-        p.setMonto(Float.parseFloat(producto.getPrecio()));
+        p.setMonto(Float.parseFloat(producto.getPrecio())*numero);
         p.setEstado("Pendiente");
         p.setIngredientes(ingredientesSeleccionados());
 
@@ -217,7 +227,7 @@ public class ProductoInduvidual extends AppCompatActivity  {
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     arrayList.add(ds.getValue().toString());
                 }
-                for (int x = 0; x <= (arrayList.size()-1); x++)
+                for (int x = 0; x < arrayList.size(); x++)
                 {
                     cbIngre[x].setVisibility(View.VISIBLE);
                     cbIngre[x].setText(arrayList.get(x));

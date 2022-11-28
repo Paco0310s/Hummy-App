@@ -105,7 +105,7 @@
                     android:fontFamily="@font/cooperhewitt_heavy"
                     android:gravity=""
                     android:inputType="textWebEmailAddress"
-                    android:text="hectorgv2019@gmail.com">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
                     android:inputType="textPassword"
-                    android:text="17755771">
+                    android:text="">
 
                 </com.google.android.material.textfield.TextInputEditText>
 

@@ -24,7 +24,7 @@ public class InicioActivity extends AppCompatActivity {
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationview, navController);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder
-                (R.id.fragmentPrincipal, R.id.fragmentUsuario, R.id.fragmentCarrito,R.id.fragmentConfiguracion).build();
+                (R.id.fragmentPrincipal, R.id.fragmentUsuario, R.id.fragmentCarrito,R.id.fragmentNotificaciones).build();
         NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
     }
 }

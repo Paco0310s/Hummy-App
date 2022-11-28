@@ -124,11 +124,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
+                    android:id="@+id/btnGuardar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:background="@drawable/tab_boton_completo"
                     android:layout_margin="10dp"
+                    android:background="@drawable/tab_boton_completo"
                     android:text="Guardar">
 
                 </Button>
