@@ -56,12 +56,17 @@ public class CarritoFragment extends Fragment implements Comunicacion {
 
     public void init() {
         carrito = new ArrayList<>();
-        carrito.add(new Carrito(R.drawable.logo, "Tacos",
-                "Tacos el Paco","20",1));
-        carrito.add(new Carrito(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20",1));
-        carrito.add(new Carrito(R.drawable.logo,"Tacos",
-                "Tacos el Paco","20",1));
+
+        String p1 = "https://firebasestorage.googleapis.com/v0/b/hummy-46ba4.appspot.com/o/Images%2F18b54923-e237-46d0-b195-6c729716456f%2FProductos%2FIMG-1f084027-66a6-47d5-acc1-6133fb562ac8?alt=media&token=965a2564-fdd5-48a7-94bd-74fa2e7974ff";
+        String p2 = "https://firebasestorage.googleapis.com/v0/b/hummy-46ba4.appspot.com/o/Images%2F18b54923-e237-46d0-b195-6c729716456f%2FProductos%2FIMG-282db492-bdaf-47da-8fab-0a5eda70f0d0?alt=media&token=68165a10-9c9d-4b9a-9103-c3bd643595d5";
+        String p3 = "https://firebasestorage.googleapis.com/v0/b/hummy-46ba4.appspot.com/o/Images%2F18b54923-e237-46d0-b195-6c729716456f%2FProductos%2FIMG-3ac817bb-77c2-457d-b8d0-0ac7805261bf?alt=media&token=b9158490-975a-4504-9484-212eb8900fa4";
+
+        carrito.add(new Carrito(p1, "Tacos de cazuela",
+                "El Mexa","60",5));
+        carrito.add(new Carrito(p2,"Nachos con queso y frijoles",
+                "El Mexa","48",2));
+        carrito.add(new Carrito(p3,"Tacos de arrachera",
+                "El Mexa","98",7));
         adapter();
 
     }
