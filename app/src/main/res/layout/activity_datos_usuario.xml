@@ -48,7 +48,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/may" />
+                        android:src="@drawable/usuario_icono" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -69,7 +69,6 @@
                         android:id="@+id/etUsuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="IsmaelGod"
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:gravity=""
                         android:inputType="textAutoComplete">
@@ -95,7 +94,7 @@
                         android:id="@+id/etNombre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ismael"
+
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:gravity=""
                         android:inputType="textAutoComplete">
@@ -120,7 +119,6 @@
                         android:id="@+id/etApellido"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cordoba Zuno"
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:gravity=""
                         android:inputType="textAutoComplete">
@@ -145,7 +143,6 @@
                         android:id="@+id/etCorreo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="zuno@gmail.com"
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:gravity=""
                         android:inputType="textWebEmailAddress">
@@ -195,7 +192,6 @@
                         android:id="@+id/etContacto"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="3319549202"
                         android:fontFamily="@font/cooperhewitt_heavy"
                         android:inputType="text|number">
 

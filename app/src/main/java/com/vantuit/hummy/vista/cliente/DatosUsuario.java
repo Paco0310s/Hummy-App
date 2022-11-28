@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
+import com.vantuit.hummy.vista.compartido.LoginActivity;
 
 public class DatosUsuario extends AppCompatActivity {
     EditText etUsuario, etNombre, etApellidos, etCorreo, etCurp, etTelefono;
-    Button btnGuardar;
+    Button btnGuardar,btnCerrarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +56,16 @@ public class DatosUsuario extends AppCompatActivity {
             nombre = parts[0]+"";
             apellido = parts[1]+parts[2];
         }
+        if(parts.length == 4)
+        {
+            nombre = parts[0]+parts[1];
+            apellido = parts[2]+parts[3];
+        }
         etNombre.setText(nombre);
         etApellidos.setText(apellido);
         etCorreo.setText(Constantes.USUARIO.getCORREO());
         etTelefono.setText(Constantes.USUARIO.getTELEFONO());
+
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
