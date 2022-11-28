@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,6 +62,7 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nombre, descripcion, precio, calificacion;
         ImageView iconImage;
+        EditText etCantidad;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -68,11 +70,13 @@ public class AdapterCarrito extends RecyclerView.Adapter<AdapterCarrito.ViewHold
             precio = itemView.findViewById(R.id.ca_precio);
             descripcion = itemView.findViewById(R.id.ca_descricion);
             iconImage = itemView.findViewById(R.id.ca_imagen);
+            etCantidad = itemView.findViewById(R.id.etCantidad);
         }
 
         void bindData(final Carrito item){
             nombre.setText(item.getNombre());
             precio.setText(item.getPrecio());
+            etCantidad.setText(String.valueOf(item.getCantidad()));
             descripcion.setText(item.getVendedor());
             Picasso.get().load(item.getImagen()).into(iconImage);
 
