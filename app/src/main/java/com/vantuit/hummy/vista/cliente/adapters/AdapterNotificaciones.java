@@ -102,7 +102,7 @@ public class AdapterNotificaciones extends RecyclerView.Adapter<AdapterNotificac
             if(estado.getText().equals("Cocinando"))  direccion.setText("Estamos cocinando tu pedido con mucho cariño");
             if(estado.getText().equals("En camino"))  direccion.setText("Preparate, tu pedido está en camino");
             if(estado.getText().equals("Entregado"))  direccion.setText("Entregamos tu pedido, Buen Provecho \uD83D\uDE0B ");
-            cliente.setText("Total: $"+item.getProducto().getPrecio());
+            cliente.setText("Total: $"+item.getMonto());
             cliente.setTextColor(Color.LTGRAY);
 
 
