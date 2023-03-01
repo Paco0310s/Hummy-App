@@ -33,6 +33,7 @@ import com.vantuit.hummy.R;
 import com.vantuit.hummy.modelo.Constantes;
 import com.vantuit.hummy.modelo.Usuario;
 import com.vantuit.hummy.vista.cliente.InicioActivity;
+import com.vantuit.hummy.vista.cliente.MainActivity;
 
 
 public class RegistrarseFragment extends Fragment {
@@ -44,7 +45,7 @@ public class RegistrarseFragment extends Fragment {
 
     private View root;
     public TextView tvIniciarSesion;
-    public EditText etNombre, etCorreo, etTelefono,etContra,etCContra;
+    public EditText etNombre, etCorreo, etTelefono;
     public CheckBox cbTerminos;
     public Button bInscribirse;
     public ProgressBar progressBar;
@@ -55,45 +56,22 @@ public class RegistrarseFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_registrarse, container, false);
         auth = FirebaseAuth.getInstance();
 
+
         bInscribirse = root.findViewById(R.id.bInscribirse);
         etNombre = root.findViewById(R.id.etNombre);
         etCorreo = root.findViewById(R.id.etCorreo);
         etTelefono = root.findViewById(R.id.etContacto);
-        etContra = root.findViewById(R.id.etContra);
-        etCContra =  root.findViewById(R.id.etConfirmarContra);
         tvIniciarSesion = root.findViewById(R.id.tvIniciaSesion);
         cbTerminos =  root.findViewById(R.id.cbTerminos);
         progressBar= root.findViewById(R.id.progressBar);
+        etCorreo.setEnabled(false);
+        FillTexViews();
         bInscribirse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 if (etNombre.length() == 0) {
                     etNombre.setError("Ingrese su Nombre");
-                    return;
-                }
-                if (etCorreo.length() == 0) {
-                    etCorreo.setError("Ingrese su correo");
-                    return;
-                }
-                if (etTelefono.length() == 0) {
-                    etTelefono.setError("Ingrese su correo");
-                    return;
-                }
-                if (etContra.length() == 0) {
-                    etContra.setError("Ingrese su contraseña");
-                    return;
-                }
-                if (etContra.length() <= 6) {
-                    etContra.setError("La contraseña es muy corta");
-                    return;
-                }
-                if (etCContra.length() == 0) {
-                    etCContra.setError("Vuelva a escribir su contraseña");
-                    return;
-                }
-                if (!etCContra.getText().toString().equals(etContra.getText().toString())) {
-                    etCContra.setError("Las contraseñas no coinciden");
                     return;
                 }
                 if (!cbTerminos.isChecked()) {
@@ -114,12 +92,11 @@ public class RegistrarseFragment extends Fragment {
                         for(DataSnapshot ds: dataSnapshot.getChildren()) {
                             if(email.equals(ds.child("correo").getValue().toString()))
                             {
-                                Toast.makeText(getActivity(), "Ya existe el usuario!\nInicie Sesion", Toast.LENGTH_SHORT).show();
                                 flag = true;
                             }
                         }
                         if(!flag) {
-                            creaUsuario();
+                            Registra(auth.getCurrentUser());
                             return;
                         }
                     }
@@ -133,6 +110,13 @@ public class RegistrarseFragment extends Fragment {
             }
         });
         return root;
+    }
+    private void FillTexViews()
+    {
+        FirebaseUser user = auth.getCurrentUser();
+        etNombre.setText(user.getDisplayName());
+        etCorreo.setText(user.getEmail());
+        etTelefono.setText(user.getPhoneNumber());
     }
     public void Registra(FirebaseUser user)
     {
@@ -148,30 +132,19 @@ public class RegistrarseFragment extends Fragment {
             myRef.child(id).child("direccion").setValue("");
             myRef.child(id).child("tipoUsuario").setValue("Cliente");
             myRef.child(id).child("id").setValue(id);
+            abreActivity(MainActivity.class);
         }catch (Exception e)
         {
             Toast.makeText(getActivity(), "Algo Salió Mal "+user, Toast.LENGTH_SHORT).show();
         }
 
     }
-
-    public void creaUsuario() {
-        //Crear usuario en Firebase con correo y contraseña
-        String email = etCorreo.getText().toString().trim();
-        String password = etContra.getText().toString().trim();
-
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                    Toast.makeText(getActivity(), "Usuario Creado con exito", Toast.LENGTH_SHORT).show();
-                    Registra(auth.getCurrentUser());
-                    Intent intent = new Intent(getActivity(), InicioActivity.class);
-                    startActivity(intent);
-            }
-
-        });
+    private void abreActivity(Class activity)
+    {
+        Intent intent = new Intent(getActivity(), activity);
+        startActivity(intent);
     }
+
 
 
     public boolean existeUsuario() //Verifica si el usuario no esiste antes de loguearlo

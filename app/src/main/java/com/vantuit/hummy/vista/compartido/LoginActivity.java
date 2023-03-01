@@ -2,6 +2,8 @@ package com.vantuit.hummy.vista.compartido;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +25,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.vantuit.hummy.R;
 import com.vantuit.hummy.vista.cliente.MainActivity;
 
@@ -34,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     FirebaseAuth mAuth;
 
+
+
     SignInButton mSignInButtonGoogle;
     TextView mTextViewRespuesta;
 
@@ -41,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         mAuth = FirebaseAuth.getInstance();
 
         mSignInButtonGoogle = findViewById(R.id.btnGoogle);
@@ -64,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Revisa si el usuario esta logueado (!= null) y actualiza el UI
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        FirebaseUser User = mAuth.getCurrentUser();
+       // updateUI(User);
     }
 
     private void signIn() { //Intenta loguearse con google
@@ -98,8 +109,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            irMainActivity();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
@@ -112,13 +121,50 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {//Revisa si el usuario esta logueado (!= null)
         user = mAuth.getCurrentUser();
-        if(user != null) irMainActivity();
+        if(user != null)userExists(user);
     }
 
     private void irMainActivity() { //pos va a main activity xD
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+    private void userExists(FirebaseUser user)
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference();
+        Query query = ref.child("Clientes").orderByChild("id").equalTo(user.getUid());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                    for(DataSnapshot data : snapshot.getChildren())
+                    {
+                        String key = data.getKey();
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference ref = database.getReference("Clientes").child(key);
+                        Toast.makeText(LoginActivity.this, "Bienvenido "+data.child("nombre").getValue().toString(), Toast.LENGTH_LONG).show();
+                        irMainActivity();
+                    }
+                 else
+                    creaUsuario();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    private void creaUsuario()
+    {
+        Toast.makeText(this, "Primero necesitamos algunos de sus datos", Toast.LENGTH_SHORT).show();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        RegistrarseFragment fragment = new RegistrarseFragment();
+        fragmentTransaction.add(R.id.LoginActivity, fragment);
+        fragmentTransaction.commit();
     }
 
 
